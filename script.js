@@ -92,35 +92,35 @@ function renderProjects() {
         const isEven = index % 2 === 1; // Even index (0-based) = odd visual position
         
         return `
-            <div class="critique-list-card" data-project-id="${project.id}">
+            <div class="portfolio-list-card" data-project-id="${project.id}">
                 ${isEven ? `
-                    <div class="critique-card-content">
+                    <div class="portfolio-card-content">
                         <div>
                             <h3>${project.title}</h3>
                             <p>${project.description}</p>
                         </div>
-                        <div class="critique-card-cta">
+                        <div class="portfolio-card-cta">
                             <span>View case study</span>
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                             </svg>
                         </div>
                     </div>
-                    <div class="critique-card-image">
+                    <div class="portfolio-card-image">
                         <img src="${project.image}" alt="${project.title}" loading="lazy">
-                        <span class="critique-category-badge">${project.category}</span>
+                        <span class="portfolio-category-badge">${project.category}</span>
                     </div>
                 ` : `
-                    <div class="critique-card-image">
+                    <div class="portfolio-card-image">
                         <img src="${project.image}" alt="${project.title}" loading="lazy">
-                        <span class="critique-category-badge">${project.category}</span>
+                        <span class="portfolio-category-badge">${project.category}</span>
                     </div>
-                    <div class="critique-card-content">
+                    <div class="portfolio-card-content">
                         <div>
                             <h3>${project.title}</h3>
                             <p>${project.description}</p>
                         </div>
-                        <div class="critique-card-cta">
+                        <div class="portfolio-card-cta">
                             <span>View case study</span>
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -138,7 +138,7 @@ function renderProjects() {
 
 // Attach click handlers to project cards (separated for reuse)
 function attachProjectCardHandlers() {
-    document.querySelectorAll('.critique-list-card[data-project-id]').forEach(card => {
+    document.querySelectorAll('.portfolio-list-card[data-project-id]').forEach(card => {
         card.addEventListener('click', () => {
             const projectId = parseInt(card.dataset.projectId);
             showProjectDetail(projectId);
@@ -285,7 +285,7 @@ function showProjectDetail(projectId) {
                     <span>Back to Portfolio</span>
                 </button>
                 <div class="project-detail-title">
-                    <span class="project-category">${project.category}</span>
+                    <span class="project-category-p">${project.category}</span>
                     <h1>${project.title}</h1>
                     <p class="project-description">${project.description}</p>
                 </div>
@@ -671,9 +671,9 @@ function renderCritiques() {
                 </div>
             </div>
             <div>
-                <div class="project-category">${critique.category}</div>
+                <div class="project-category-c">${critique.category}</div>
                 <h3>${critique.title}</h3>
-                <p class="project-description">${critique.description}</p>
+                <p class="project-card-description">${critique.description}</p>
                 <div class="project-tags">
                     ${critique.tags ? critique.tags.map(tag => `<span class="tag">${tag}</span>`).join('') : ''}
                 </div>
@@ -738,7 +738,7 @@ function showCritiqueDetail(critiqueId) {
                     <span>Back to Critiques</span>
                 </button>
                 <div class="project-detail-title">
-                    <span class="project-category">${critique.category}</span>
+                    <span class="project-category-c">${critique.category}</span>
                     <h1>${critique.title}</h1>
                     <p class="project-description">${critique.description}</p>
                 </div>
@@ -1020,7 +1020,7 @@ function showObservationDetail(observationId) {
                     <span>Back to Observations</span>
                 </button>
                 <div class="project-detail-title">
-                    <span class="project-category">${observation.category}</span>
+                    <span class="project-category-o">${observation.category}</span>
                     <h1>${observation.title}</h1>
                     ${observation.excerpt ? `<p class="project-description">${observation.excerpt}</p>` : ''}
                 </div>
