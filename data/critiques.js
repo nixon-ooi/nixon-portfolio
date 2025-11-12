@@ -93,18 +93,6 @@ const critiques = [
             }
         ],
         
-        // Comparison Table (optional)
-        comparisonTable: {
-            title: 'Before vs After Analysis',
-            headers: ['Aspect', 'Before Redesign', 'After Redesign'],
-            rows: [
-                ['Navigation Items', '5+ menu items', '4 core actions'],
-                ['Task Completion', '3-4 steps average', '2-3 steps average'],
-                ['User Confusion', 'High (62% reported)', 'Low (12% reported)'],
-                ['Feature Discovery', '48% discoverability', '80% discoverability']
-            ]
-        },
-        
         // Tabs Section (optional)
         tabsSection: {
             title: 'Key Improvements by Category',

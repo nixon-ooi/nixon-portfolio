@@ -684,11 +684,16 @@ p {
 }
 
 .project-category-p {
-  font-size: 0.875rem;
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: var(--color-blue-100);
   color: var(--color-blue-600);
-  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.75rem;
   font-weight: 600;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .project-category-c {
@@ -725,7 +730,7 @@ p {
 
 .project-card-description {
   color: var(--color-gray-600);
-  font-size: large;
+  font-size: 1rem;
   margin-bottom: 1rem;
 }
 
@@ -1630,7 +1635,7 @@ p {
   }
 
   .portfolio-card-image {
-    min-height: 250px;
+    min-height: 200px;
   }
 
   .portfolio-card-content {
@@ -1817,7 +1822,7 @@ p {
   
   /* Ensure proper spacing on mobile */
   .detail-main > .detail-section {
-    margin-bottom: 2rem;
+    margin-bottom: 0;
   }
   
   .detail-info p {
@@ -1862,8 +1867,8 @@ p {
   
   /* Final Product mobile adjustments */
   .tldr-final-product {
-    margin-top: 2rem;
-    padding-top: 2rem;
+    margin-top: 0rem;
+    padding-top: 0rem;
   }
   
   .tldr-final-images {
@@ -1876,8 +1881,7 @@ p {
   
   /* Image Text Section mobile */
   .image-text-section {
-    margin-top: 2rem;
-    padding-top: 2rem;
+    padding: 0;
   }
   
   .image-text-container {
@@ -1914,6 +1918,8 @@ p {
     font-size: 0.8125rem;
   }
 }
+
+
 
 @media (max-width: 480px) {
   /* Reduce container padding on very small screens */
@@ -2152,7 +2158,7 @@ p {
 
 .observation-card p {
   color: var(--color-gray-600);
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 
 .observation-tags {
@@ -2383,6 +2389,12 @@ p {
   gap: 2rem;
 }
 
+/* Allow grid/flex children to shrink on small screens and avoid causing horizontal overflow */
+.detail-sidebar,
+.detail-main {
+  min-width: 0;
+}
+
 .detail-info h4 {
   color: var(--color-gray-900);
   margin-bottom: 0.5rem;
@@ -2400,13 +2412,14 @@ p {
 }
 
 .detail-section {
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--color-gray-200);
+  padding-bottom: 1rem;
 }
 
 .detail-section:last-child {
   border-bottom: none;
-  padding-bottom: 0;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  background-color: #F7EE73;
 }
 
 .detail-section ul {
@@ -2496,6 +2509,22 @@ p {
   hyphens: auto;
 }
 
+.proposals-list {
+  list-style: decimal;
+  margin-left: 1.25rem;
+  color: var(--color-gray-700);
+  font-size: 1.0625rem;
+}
+
+.proposals-list li {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+  padding-left: 0.5rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
 .tldr-proposals-list {
   list-style: decimal;
   margin-left: 1.25rem;
@@ -2522,9 +2551,7 @@ p {
 
 /* Final Product Showcase */
 .tldr-final-product {
-  margin-top: 3rem;
-  padding-top: 3rem;
-  border-top: 1px solid var(--color-gray-200);
+  margin-top: 0;
 }
 
 .tldr-final-images {
@@ -2540,11 +2567,24 @@ p {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
+.tldr-final-images p {
+  color: var(--color-gray-700);
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+  font-size: 1.0625rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.tldr-final-images h2 {
+  margin-bottom: 0rem;
+}
+
 /* Image and Text Split Section */
 .image-text-section {
-  margin-top: 3rem;
-  padding-top: 3rem;
-  border-top: 1px solid var(--color-gray-200);
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--color-gray-200);
 }
 
 .image-text-container {
@@ -2561,10 +2601,17 @@ p {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
+.image-text-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+  aspect-ratio: 4/3;
+}
+
 .image-text-content h3 {
   color: var(--color-gray-900);
   margin-bottom: 1rem;
-  font-size: 1.5rem;
 }
 
 .image-text-content p {
@@ -2650,6 +2697,11 @@ p {
     padding: 4rem 0;
   }
 
+  /* Prevent accidental horizontal overflow inside the project detail area on small screens */
+  .project-detail-content {
+    overflow-x: hidden;
+  }
+
   .results-grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -2700,9 +2752,8 @@ p {
 
 /* Gallery Section */
 .gallery-section {
-  padding: 2rem 0;
-  margin: 2rem 0;
-  border-bottom: 1px solid var(--color-gray-200);
+  padding-bottom: 1rem;
+  /* border-bottom: 1px solid var(--color-gray-200); */
 }
 
 .gallery-section:last-child {
@@ -2711,9 +2762,24 @@ p {
 
 .gallery-title {
   color: var(--color-gray-900);
-  font-size: 1.5rem;
   margin-bottom: 1.5rem;
   font-family: var(--font-heading);
+}
+
+.gallery-subtitle {
+  padding-top: 2rem;
+}
+
+.gallery-description {
+  color: var(--color-gray-700);
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+  font-size: 1.0625rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  border-bottom: 1px solid var(--color-gray-200);
+  padding-bottom: 2rem;
 }
 
 /* Carousel Styles */
@@ -2862,6 +2928,7 @@ p {
 
 .gallery-2x2 {
   grid-template-columns: 1fr;
+  padding-bottom: 2rem;
 }
 
 @media (min-width: 640px) {
@@ -2871,6 +2938,7 @@ p {
   
   .gallery-2x2 {
     grid-template-columns: repeat(2, 1fr);
+    padding-bottom: 1rem;
   }
 }
 
@@ -3091,7 +3159,7 @@ p {
 
 /* Centered Hero Layout */
 .hero-centered {
-  max-width: 800px;
+  max-width: 660px;
   margin: 0 auto;
   text-align: center;
   position: relative;
@@ -3148,6 +3216,8 @@ p {
 
 .critique-tabs {
   margin-top: 1.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--color-gray-200);
 }
 
 .critique-tabs-nav {
