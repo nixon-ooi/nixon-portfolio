@@ -194,6 +194,7 @@ function createCarousel(gallery, galleryIndex) {
                 </div>
             </div>
         </div>
+        ${gallery.description ? `<p class="gallery-description">${gallery.description}</p>` : ''}
     `;
 }
 
@@ -416,23 +417,22 @@ function showProjectDetail(projectId) {
                         <!-- Problem Statement Section with indented paragraphs -->
                         ${project.brief ? renderBriefSection(project.brief) : ''}
 
+                        ${project.finalImages ? `
+                            <div class="detail-section">
+                                ${project.finalImages.images ? project.finalImages.images.map(img => `
+                                    <img src="${img}" alt="Final Image" class="tldr-product-image">
+                                `).join('') : ''}
+                                ${project.finalImages.paragraph ? `<p>${project.finalImages.paragraph}</p>` : ''}
+                            </div>
+                        ` : ''}
+
                         ${project.galleries ? getGallery(project.galleries, 1) : ''}
 
                         ${project.galleries ? getGallery(project.galleries, 2) : ''}
 
                         ${project.tabsSection ? renderTabsSection(project.tabsSection) : ''}
 
-
-                        <!-- Final Product Showcase -->
-                        ${project.finalImages && project.finalImages.length > 0 ?`
-                        <div class="tldr-final-product">
-                            <div class="tldr-final-images">
-                                <h2>Recommendations</h2>
-                                <p>${project.recommendation}</p>
-                                ${project.galleries ? getGallery(project.galleries, 3) : ''}
-                            </div>
-                        </div>
-                        ` : ''}
+                        ${project.galleries ? getGallery(project.galleries, 3) : ''}
 
                         ${project.galleries ? getGallery(project.galleries, 4) : ''}
 

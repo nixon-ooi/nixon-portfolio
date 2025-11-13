@@ -31,10 +31,14 @@ const projects = [
                 }
             ],
 
-            outcome: 'By addressing core usability flaws, increase user adoption and retention. Transforming the app from a frustrating tool to a reliable resource for caregivers',
+            outcome: ['By addressing core usability flaws, increase user adoption and retention. Transforming the app from a frustrating tool to a reliable resource for caregivers'],
+
+            
         },
         
         overview: 'As I view the caretakers of my grandparents and elders themselves who facilitate the daily ritual of medicine consumption, there is a struggle to remember the timing and dosage let alone noting down their reaction to the medication.<br><br>This raises the need to understand why tools like the HealthBuddy app are not fully adopted or consistently used. Through investigating user behaviors, routines, and contexts, the goal is to uncover the barriers that shape adoption and provide insights to guide better design.',
+
+        finalImages: [],
 
         // Image and Text Section
         imageTextSection: {
@@ -91,6 +95,8 @@ const projects = [
             },
             {
             type: 'grid-2x2',
+            title: 'Recommendations',
+            description: 'Learning from the testing, I made final changes to the prototype: utilising a more visual medical reminder menu for easier navigation; showing only the latest medication intake instead of entire calendar list for focused scanning.',
             images: [
             { url: 'assets/healthbuddy-recommend-before.jpg', caption: 'Current Design screens' },
             { url: 'assets/healthbuddy-recommend-after.png', caption: 'After Feedback screens' },
@@ -98,10 +104,6 @@ const projects = [
             { url: 'assets/healthbuddy-recommend-longterm.png', caption: 'Long term suggestion' },
                 ]
             }
-        ],
-
-        finalImages: [
-        'https://images.unsplash.com/photo-1694599048261-a1de00f0117e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlY29tbWVyY2UlMjB3ZWJzaXRlJTIwZGVzaWdufGVufDF8fHx8MTc2MjA2MDcwNnww&ixlib=rb-4.1.0&q=80&w=1080',
         ],
 
         //challenge: 'Traditional banking apps are often intimidating and difficult to navigate. Users struggle with complex security measures, hidden features, and unintuitive transaction flows. The challenge was to create a friendly, approachable interface without compromising on security or functionality.',
@@ -156,7 +158,7 @@ const projects = [
             ]
         },
     },
-            {
+        {
         id: 2,
         title: 'Olio Food',
         category: 'Food Waste',
@@ -185,20 +187,22 @@ const projects = [
                 }
             ],
 
-            outcome: 'An intuitive and engaging experience that increase user retention and community building, ultimately boosting the app\'s overall effectiveness in combating food waste.',
+            outcome: ['An intuitive and engaging experience that increase user retention and community building, ultimately boosting the app\'s overall effectiveness in combating food waste.',
+            ],
         },
         
         overview: 'The organisation requires you to build on your existing research by exploring and identifying the business needs,competitors, and success metrics. Along with the user research you have already gathered, these insights will inform a high-fidelity prototype.',
 
+
         brief: {
-            title: 'Problem Statement',
+            title: 'UX Metrics & Service Blueprint',
             paragraphs: [
-                'The core problem is the low, inconsistent use of digital health tools by caretakers and the elderly, which leads to poor medication adherence and prevents the collection of crucial side effect data.',
+                'Olio\'s mission to reduce food waste depends significantly on active user involvement. Tracking community engagement metrics is essential for evaluating the platform\'s efficacy in cultivating a connected and engaged user community.',
                 {
-                    text: 'How might we design a medication management system that is as reliable and intuitive as an alarm clock, so that caretakers and elderly users consistently log their medication and side effects?',
+                    text: 'Using Google\'s HEART framework, product teams can focus on user-centered metrics to make data-driven decisions, prioritize development efforts, and align UX improvements with business goals. ',
                     indent: true
-                }
-    ]
+                },
+            ]
         },
 
         galleries: [
@@ -215,20 +219,21 @@ const projects = [
                 ]
             },
             {
-            type: 'grid-2x2',
-            subtitle: 'Hypothesis',
-            description: 'The consistent use of the HealthBuddy app will significantly increase if its user interface is redesigned with clear, familiar iconography and the core task of adding medication is simplified with alternative methods like photo- or voice-based entry.',
+            type: 'carousel',// Options: 'carousel', 'two-column', 'three-column', 'grid-2x2'
+            description: 'The service blueprint helped to see the bottle necks in the service provided. Using data gathered from other parts of research, the points highlighted in red are parts which the redesign will tackle.',
             images: [
-            { url: 'assets/healthbuddy-problem-statement-1.png', caption: 'Issue Tree' },
-            { url: 'assets/healthbuddy-problem-statement-2.png', caption: 'Priority Matrix' }
+            { url: 'assets/olio-heart-framework.png', caption: 'Google Heart Framework' },
+            { url: 'assets/olio-service-blueprint.png', caption: 'Service Blueprint' },
                 ]
             },
             {
-            type: 'grid-2x2', // Options: 'carousel', 'two-column', 'three-column', 'grid-2x2'
-            title: 'Initial Prototype',
+            type: 'carousel',// Options: 'carousel', 'two-column', 'three-column', 'grid-2x2'
+            description: 'The service blueprint helped to see the bottle necks in the service provided. Using data gathered from other parts of research, the points highlighted in red are parts which the redesign will tackle.',
             images: [
-            { url: 'assets/healthbuddy-initial-prototype.png', caption: 'Initial Prototype screens' },
-            { url: 'assets/healthbuddy-initial-prototype-result.png', caption: 'Test Results' }
+            { url: 'assets/olio-mockup-1.png', caption: 'Redesigned Home Page' },
+            { url: 'assets/olio-mockup-2.png', caption: 'Redesigned Explore Page' },
+            { url: 'assets/olio-mockup-3.png', caption: 'Redesigned Community Page' },
+            { url: 'assets/olio-mockup-4.png', caption: 'Introduction of Games' },
                 ]
             },
             {
@@ -240,10 +245,6 @@ const projects = [
             { url: 'assets/healthbuddy-recommend-longterm.png', caption: 'Long term suggestion' },
                 ]
             }
-        ],
-
-        finalImages: [
-        'https://images.unsplash.com/photo-1694599048261-a1de00f0117e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlY29tbWVyY2UlMjB3ZWJzaXRlJTIwZGVzaWdufGVufDF8fHx8MTc2MjA2MDcwNnww&ixlib=rb-4.1.0&q=80&w=1080',
         ],
 
         //challenge: 'Traditional banking apps are often intimidating and difficult to navigate. Users struggle with complex security measures, hidden features, and unintuitive transaction flows. The challenge was to create a friendly, approachable interface without compromising on security or functionality.',
