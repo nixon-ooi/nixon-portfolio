@@ -279,6 +279,14 @@ function showProjectDetail(projectId) {
         </div>
     `).join('');
     
+    // Initialize carousels and lightbox after page loads
+    setTimeout(() => {
+        initializeCarousels();
+        initializeLightbox(project);
+        initializeTabs();
+        initializeAccordions();
+    }, 0);
+
     // Build galleries by position
     const galleriesByPosition = {
         'after-overview': '',
@@ -432,6 +440,8 @@ function showProjectDetail(projectId) {
 
                         ${project.tabsSection ? renderTabsSection(project.tabsSection) : ''}
 
+                        ${project.accordionSection ? renderAccordionSection(project.accordionSection) : ''}
+
                         ${project.galleries ? getGallery(project.galleries, 3) : ''}
 
                         ${project.galleries ? getGallery(project.galleries, 4) : ''}
@@ -449,7 +459,6 @@ function showProjectDetail(projectId) {
                                 ` : ''}
                         </div>
                         
-
 
                         ${false ? `
                         <div class="detail-section">
@@ -506,16 +515,9 @@ function showProjectDetail(projectId) {
             </div>
         </section>
     `;
-
+    initializeAccordions(); // <--- INSERT THIS LINE HERE
     navigateToPage('projectDetail');
     
-    // Initialize carousels and lightbox after page loads
-    setTimeout(() => {
-        initializeCarousels();
-        initializeLightbox(project);
-        initializeTabs();
-        initializeAccordions();
-    }, 0);
 }
 
 // Initialize carousel functionality

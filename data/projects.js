@@ -7,7 +7,7 @@ const projects = [
         title: 'HealthBuddy - Meds Tracker',
         category: 'Public Health App',
         description: 'Bridging the digital divide to empower caregivers and engage elderly users.',
-        image: '/assets/healthbuddy-hero-image.png',
+        image: 'assets/healthbuddy-hero-image.png',
         
         role: 'Senior UX Designer',
         timeline: '4 months',
@@ -38,7 +38,7 @@ const projects = [
         
         overview: 'As I view the caretakers of my grandparents and elders themselves who facilitate the daily ritual of medicine consumption, there is a struggle to remember the timing and dosage let alone noting down their reaction to the medication.<br><br>This raises the need to understand why tools like the HealthBuddy app are not fully adopted or consistently used. Through investigating user behaviors, routines, and contexts, the goal is to uncover the barriers that shape adoption and provide insights to guide better design.',
 
-        finalImages: [],
+
 
         // Image and Text Section
         imageTextSection: {
@@ -141,7 +141,7 @@ const projects = [
         
         // Tabs Section (optional)
         tabsSection: {
-            title: 'Testing insights',
+            title: 'Insights from Testing',
             tabs: [
                 {
                     label: 'Synthesis of findings',
@@ -163,7 +163,7 @@ const projects = [
         title: 'Olio Food',
         category: 'Food Waste',
         description: 'Turning frustration into impact through strategic design that tackles food waste and builds community',
-        image: '/assets/olio-hero-image.png',
+        image: 'assets/olio-hero-image.png',
         
         role: 'Senior UX Designer',
         timeline: '4 months',
@@ -228,7 +228,7 @@ const projects = [
             },
             {
             type: 'carousel',// Options: 'carousel', 'two-column', 'three-column', 'grid-2x2'
-            description: 'The service blueprint helped to see the bottle necks in the service provided. Using data gathered from other parts of research, the points highlighted in red are parts which the redesign will tackle.',
+            title: 'Initial Prototype',
             images: [
             { url: 'assets/olio-mockup-1.png', caption: 'Redesigned Home Page' },
             { url: 'assets/olio-mockup-2.png', caption: 'Redesigned Explore Page' },
@@ -238,13 +238,25 @@ const projects = [
             },
             {
             type: 'grid-2x2',
+            description: 'Testing the prototype with users provided insights into usability issues and areas for improvement. Key findings included confusion around the points system, the need for clearer sectioning in detailed listings, and the desire for more comprehensive information to build trust among users.',
+            title: 'Insights from Testing',
             images: [
-            { url: 'assets/healthbuddy-recommend-before.jpg', caption: 'Current Design screens' },
-            { url: 'assets/healthbuddy-recommend-after.png', caption: 'After Feedback screens' },
-            { url: 'assets/healthbuddy-recommend-shortterm.png', caption: 'Short term suggestion' },
-            { url: 'assets/healthbuddy-recommend-longterm.png', caption: 'Long term suggestion' },
+            { url: 'assets/olio-testing-insights-1.png', caption: 'Key Themes of Insights' },
+            { url: 'assets/olio-testing-insights-2.png', caption: 'Unsure of how the point system works' },
+            { url: 'assets/olio-testing-insights-3.png', caption: 'Detailed listing has clearer sections' },
+            { url: 'assets/olio-testing-insights-4.png', caption: 'More Details can be added for clarity' },
                 ]
-            }
+            },
+            {
+            type: 'carousel',// Options: 'carousel', 'two-column', 'three-column', 'grid-2x2'
+            title: 'Improvements After Testing',
+            images: [
+            { url: 'assets/olio-mockup-after-testing-1.png', caption: 'Onboarding process' },
+            { url: 'assets/olio-mockup-after-testing-2.png', caption: 'Product Page' },
+            { url: 'assets/olio-mockup-after-testing-3.png', caption: 'Community Page' },
+            { url: 'assets/olio-mockup-after-testing-4.png', caption: 'Games Page' },
+                ]
+            },
         ],
 
         //challenge: 'Traditional banking apps are often intimidating and difficult to navigate. Users struggle with complex security measures, hidden features, and unintuitive transaction flows. The challenge was to create a friendly, approachable interface without compromising on security or functionality.',
@@ -260,13 +272,13 @@ const projects = [
             title: 'Learning Points',
             proposals: [
                 {
-                    description: 'Take time to synthesis user interviews.'
+                    description: 'Making an impact doesn\'t require a big change. Informative insights are more meaningful for the project.'
                 },
                 {
-                    description: 'Allow users to understand where they are in the process .'
+                    description: 'Using the "Work on something small, get feedback, iterate, repeat" framework has sped up my redesign process.'
                 },
                 {
-                    description: 'Unnecessary sectionising creates friction.'
+                    description: 'Replicating the interface highlighted the significance of analyzing featured animations and integrating them into my mockup.'
                 },
             ]
         },
@@ -279,25 +291,7 @@ const projects = [
                 { metric: '65%', label: 'Increase in mobile transactions' },
                 { metric: '4.7/5', label: 'App store rating' }
             ],
-        
-        // Tabs Section (optional)
-        tabsSection: {
-            title: 'Testing insights',
-            tabs: [
-                {
-                    label: 'Synthesis of findings',
-                    content: '<p>The research confirmed the hypothesis was correct but incomplete. The core problem isn\'t just about usability; it\'s about a complete user journey. The app should evolve beyond a simple tool into a holistic medication management and knowledge ecosystem.</p>'
-                },
-                {
-                    label: 'What was found',
-                    content: '<p>User tests showed a strong preference for a simplified interface and a QR scanner for adding medication, which would significantly improve task completion.</p>'
-                },
-                {
-                    label: 'Why it matters',
-                    content: '<p>Users were frustrated with manual entry and wanted a more efficient process. Our analysis revealed a deeper user need for reliable medical information and a seamless connection between the app and the physical act of taking medication (e.g., a pill dispenser)</p>'
-                }
-            ]
-        },
+
     },
     {
         id: 3,

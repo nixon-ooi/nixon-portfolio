@@ -22,6 +22,21 @@ const observations = [
         excerpt: 'With the advent of spatial computing, we\'re seeing a shift from flat 2D interfaces to immersive 3D experiences. This observation explores how designers are adapting traditional UI patterns to work in three-dimensional space.',
         content: 'The design language is evolving to accommodate depth, shadows, and spatial relationships in ways that feel natural to users. Key considerations include maintaining usability while adding dimensionality, ensuring accessibility in spatial contexts, and creating intuitive navigation in 3D space.',
         tags: ['Spatial Computing', 'Future of Design', '3D UI'],
+
+        //Accordion Section (for FAQs or expandable content)//
+        accordionSection: {
+            title: 'Common Questions',
+            items: [
+                {
+                    title: 'When should this pattern be used?',
+                    content: 'Explanation of when to apply this pattern...'
+                },
+                {
+                    title: 'What are the tradeoffs?',
+                    content: 'Discussion of pros and cons...'
+                }
+            ]
+        },
         
         // OPTIONAL: Add these fields to create a full detail page (same structure as critiques/portfolio)
         // Uncomment and customize to enable full detail page functionality
@@ -96,21 +111,6 @@ const observations = [
                 {
                     label: 'Use Cases',
                     content: '<p>Content for use cases...</p>'
-                }
-            ]
-        },
-        
-        // Accordion Section (for FAQs or expandable content)
-        accordionSection: {
-            title: 'Common Questions',
-            items: [
-                {
-                    title: 'When should this pattern be used?',
-                    content: 'Explanation of when to apply this pattern...'
-                },
-                {
-                    title: 'What are the tradeoffs?',
-                    content: 'Discussion of pros and cons...'
                 }
             ]
         },
