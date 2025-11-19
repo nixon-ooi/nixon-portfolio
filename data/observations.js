@@ -15,13 +15,41 @@
 const observations = [
     {
         id: 1,
-        title: 'The Rise of Spatial Interfaces',
-        category: 'Industry Trends',
+        slug: 'cpf-unauthorised',
+        title: 'CPF unauthorised withdrawal',
+        image: 'assets/olio-hero-image.png',
+        category: 'Preventive Measures',
         date: 'October 25, 2025',
         readTime: '5 min read',
-        excerpt: 'With the advent of spatial computing, we\'re seeing a shift from flat 2D interfaces to immersive 3D experiences. This observation explores how designers are adapting traditional UI patterns to work in three-dimensional space.',
-        content: 'The design language is evolving to accommodate depth, shadows, and spatial relationships in ways that feel natural to users. Key considerations include maintaining usability while adding dimensionality, ensuring accessibility in spatial contexts, and creating intuitive navigation in 3D space.',
+        excerpt: 'The system\'s reliance on login credentials fails to prevent insider fraud when trusted individuals compromise account security.',
         tags: ['Spatial Computing', 'Future of Design', '3D UI'],
+
+
+        // Brief Section (for additional context)
+        brief: {
+            title: 'Brief',
+            paragraphs: [
+                'Incidents involving unauthorized access to CPF accounts highlight a critical vulnerability: the breach of trust where authorized login credentials are intentionally or unintentionally compromised by individuals close to the account holder.',
+                {
+                    text: 'The Central Provident Fund (CPF) is a comprehensive social security system that enables working Singapore Citizens and Permanent Residents to set aside funds for retirement. It also addresses healthcare, home ownership, family protection and asset enhancement.',
+                    indent: true
+                },
+                'In these scenarios, the system\'s security, designed primarily against external threats, fails to detect or prevent insider fraud, leading to significant financial losses and erosion of public trust in digital financial platforms.'
+            ]
+        },
+
+        // Image Galleries
+        galleries: [
+            {
+            type: 'grid-2x2',
+            subtitle: 'Hypothesis',
+            description: 'The consistent use of the HealthBuddy app will significantly increase if its user interface is redesigned with clear, familiar iconography and the core task of adding medication is simplified with alternative methods like photo- or voice-based entry.',
+            images: [
+            { url: 'assets/999.png', caption: 'Issue Tree' },
+            { url: 'assets/healthbuddy-problem-statement-2.png', caption: 'Priority Matrix' }
+                ]
+            },
+        ],
 
         //Accordion Section (for FAQs or expandable content)//
         accordionSection: {

@@ -341,9 +341,11 @@ function showProjectDetail(projectId) {
                             <p>${project.timeline}</p>
                         </div>
                         <div class="detail-info">
-                            <h4>Team</h4>
-                            <p>${project.team}</p>
-                        </div>
+                            <h4>Tag</h4>
+                            <div class="project-tags">
+                                ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                            </div>
+                        </div>                                           
                     </div>
 
                     <div class="detail-main">
@@ -446,7 +448,268 @@ function showProjectDetail(projectId) {
 
                         ${project.galleries ? getGallery(project.galleries, 4) : ''}
 
+                        <div class="learning-points">
+                            <h2>${project.learningpoints.title}</h2>
+                            ${project.learningpoints.proposals ? `
+                            <ul class="proposals-list">
+                                ${project.learningpoints.proposals.map(proposal => `
+                                    <li>
+                                        ${proposal.description}
+                                    </li>
+                                `).join('')}
+                            </ul>
+                                ` : ''}
+                        </div>
+                        
+
+                        ${false ? `
                         <div class="detail-section">
+                            <h2>The Challenge</h2>
+                            <p>${project.challenge}</p>
+                        </div>
+                        ` : ''}
+
+                        ${false ? `
+                        <div class="detail-section">
+                            <h2>Research & Discovery</h2>
+                            <p>Key research activities and findings:</p>
+                            <ul>
+                                ${researchItems}
+                            </ul>
+                        </div>
+                        ` : ''}
+
+                        ${false ? `
+                        <div class="detail-section">
+                            <h2>Results</h2>
+                            <div class="results-grid">
+                                ${resultsCards}
+                            </div>
+                        </div>
+                        ` : ''}
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section class="contact">
+            <div class="container text-center">
+                <h2>Let's Work Together</h2>
+                <p class="contact-text">
+                    I'm always open to discussing new projects, creative ideas, or 
+                    opportunities to be part of your vision.
+                </p>
+                <div class="contact-links">
+                    <a href="mailto:nixonooishenrong@gmail.com" class="contact-link">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                        <span>Email</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/nixonooi/" class="contact-link">
+                        <svg fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    `;
+    initializeAccordions(); // <--- INSERT THIS LINE HERE
+    navigateToPage('projectDetail');
+    
+}
+
+function showProjectDetail(projectId) {
+    const project = projects.find(p => p.id === projectId);
+    if (!project) return;
+
+    const detailContent = document.getElementById('projectDetailContent');
+    if (!detailContent) return;
+
+    // Build research list items
+    const researchItems = project.research.map(item => `<li>${item}</li>`).join('');
+    
+    // Build results cards
+    const resultsCards = project.results.map(result => `
+        <div class="result-card">
+            <h3>${result.metric}</h3>
+            <p>${result.label}</p>
+        </div>
+    `).join('');
+    
+    // Initialize carousels and lightbox after page loads
+    setTimeout(() => {
+        initializeCarousels();
+        initializeLightbox(project);
+        initializeTabs();
+        initializeAccordions();
+    }, 0);
+
+    // Build galleries by position
+    const galleriesByPosition = {
+        'after-overview': '',
+        'after-challenge': '',
+        'after-research': '',
+        'after-solution': '',
+        'before-results': ''
+    };
+    
+    if (project.galleries && project.galleries.length > 0) {
+        project.galleries.forEach((gallery, index) => {
+            const position = gallery.position || 'after-overview';
+            if (galleriesByPosition[position] !== undefined) {
+                galleriesByPosition[position] += renderGallery(gallery, index);
+            }
+        });
+    }
+
+    detailContent.innerHTML = `
+        <section class="project-detail-header">
+            <div class="container">
+                <button class="back-btn" onclick="navigateToPage('portfolio')">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                    <span>Back to Portfolio</span>
+                </button>
+                <div class="project-detail-title">
+                    <span class="project-category-p">${project.category}</span>
+                    <h1>${project.title}</h1>
+                    <p class="project-description">${project.description}</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-detail-image">
+            <div class="container">
+                <img src="${project.image}" alt="${project.title}" class="detail-image">
+            </div>
+        </section>
+
+        <section class="project-detail-content">
+            <div class="container">
+                <div class="detail-grid">
+                    <div class="detail-sidebar">
+                        <div class="detail-info">
+                            <h4>Role</h4>
+                            <p>${project.role}</p>
+                        </div>
+                        <div class="detail-info">
+                            <h4>Timeline</h4>
+                            <p>${project.timeline}</p>
+                        </div>
+                        <div class="detail-info">
+                            <h4>Tag</h4>
+                            <div class="project-tags">
+                                ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                            </div>
+                        </div>                                           
+                    </div>
+
+                    <div class="detail-main">
+                        <!-- TL;DR Section -->
+                        ${project.tldr ? `
+                        <div class="tldr-section">
+                            <h2 class="tldr-title">TL;DR</h2>
+                            
+                            <div class="tldr-steps">
+                                <!-- Step 1: Project Overview -->
+                                <div class="tldr-step">
+                                    <div class="tldr-step-number">1</div>
+                                    <div class="tldr-step-content">
+                                        <h3>Project Overview</h3>
+                                        <p>${project.tldr.overview}</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Step 2: Key Proposals -->
+                                <div class="tldr-step">
+                                    <div class="tldr-step-number">2</div>
+                                    <div class="tldr-step-content">
+                                        <h3>Key Proposals</h3>
+                                        ${project.tldr.proposals ? `
+                                            <ol class="tldr-proposals-list">
+                                                ${project.tldr.proposals.map(proposal => `
+                                                    <li>
+                                                        <strong>${proposal.title}</strong> ${proposal.description}
+                                                    </li>
+                                                `).join('')}
+                                            </ol>
+                                        ` : ''}
+                                    </div>
+                                </div>
+                                
+                                <!-- Step 3: Outcome -->
+                                <div class="tldr-step">
+                                    <div class="tldr-step-number">3</div>
+                                    <div class="tldr-step-content">
+                                        <h3>Outcome</h3>
+                                        <p>${project.tldr.outcome}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        ` : ''}
+
+                        ${project.overview ? `
+                        <div class="detail-section">
+                            <h3>Brief</h3>
+                            <p>${project.overview}</p>
+                        </div>
+                        ` : ''}
+
+                        ${project.imageTextSection ? `
+                        <div class="image-text-section">
+                            <div class="image-text-container">
+                                <div class="image-text-image-wrapper">
+                                    <img src="${project.imageTextSection.image}" alt="${project.imageTextSection.title}" class="image-text-image">
+                                </div>
+                                <div class="image-text-content">
+                                    <h3>${project.imageTextSection.title}</h3>
+                                    ${project.imageTextSection.proposals ? `
+                                    <ul class="tldr-proposals-list">
+                                        ${project.imageTextSection.proposals.map(proposal => `
+                                            <li>
+                                                <strong>${proposal.title}</strong> ${proposal.description}
+                                            </li>
+                                        `).join('')}
+                                    </ul>
+                                     ` : ''}
+                                </div>
+                            </div>
+                        </div>
+                        ` : ''}
+
+                        ${project.galleries ? getGallery(project.galleries, 0) : ''}
+
+                        <!-- Problem Statement Section with indented paragraphs -->
+                        ${project.brief ? renderBriefSection(project.brief) : ''}
+
+                        ${project.finalImages ? `
+                            <div class="detail-section">
+                                ${project.finalImages.images ? project.finalImages.images.map(img => `
+                                    <img src="${img}" alt="Final Image" class="tldr-product-image">
+                                `).join('') : ''}
+                                ${project.finalImages.paragraph ? `<p>${project.finalImages.paragraph}</p>` : ''}
+                            </div>
+                        ` : ''}
+
+                        ${project.galleries ? getGallery(project.galleries, 1) : ''}
+
+                        ${project.galleries ? getGallery(project.galleries, 2) : ''}
+
+                        ${project.tabsSection ? renderTabsSection(project.tabsSection) : ''}
+
+                        ${project.accordionSection ? renderAccordionSection(project.accordionSection) : ''}
+
+                        ${project.galleries ? getGallery(project.galleries, 3) : ''}
+
+                        ${project.galleries ? getGallery(project.galleries, 4) : ''}
+
+                        <div class="learning-points">
                             <h2>${project.learningpoints.title}</h2>
                             ${project.learningpoints.proposals ? `
                             <ul class="proposals-list">
@@ -684,289 +947,8 @@ function initializeLightbox(project) {
         });
     });
 }
-// Start of critiques page
-// Render critiques (now using grid layout)
-function renderCritiques() {
-    const grid = document.getElementById('critiquesGrid');
-    if (!grid) return;
 
-    grid.innerHTML = critiques.map(critique => `
-        <div class="project-card" data-critique-id="${critique.id}">
-            <div class="project-image-wrapper">
-                <img src="${critique.image}" alt="${critique.title}" class="project-image">
-                <div class="project-overlay">
-                    <div class="project-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="project-category-c">${critique.category}</div>
-                <h3>${critique.title}</h3>
-                <p class="project-card-description">${critique.description}</p>
-                <div class="project-tags">
-                    ${critique.tags ? critique.tags.map(tag => `<span class="tag">${tag}</span>`).join('') : ''}
-                </div>
-            </div>
-        </div>
-    `).join('');
-
-    // Add click handlers for cards
-    const cards = document.querySelectorAll('.project-card[data-critique-id]');
-    cards.forEach(card => {
-        card.addEventListener('click', () => {
-            const critiqueId = parseInt(card.dataset.critiqueId);
-            showCritiqueDetail(critiqueId);
-        });
-    });
-}
-
-// Show critique detail page (using same structure as portfolio)
-function showCritiqueDetail(critiqueId) {
-    const critique = critiques.find(c => c.id === critiqueId);
-    if (!critique) return;
-
-    const detailContent = document.getElementById('critiqueDetailContent');
-    if (!detailContent) return;
-
-    // Process galleries by position (same as portfolio)
-    const galleriesByPosition = {
-        'after-overview': '',
-        'after-challenge': '',
-        'after-research': '',
-        'after-solution': '',
-        'before-results': ''
-    };
-
-    if (critique.galleries) {
-        critique.galleries.forEach((gallery, index) => {
-            const galleryHTML = renderGallery(gallery, index);
-            if (galleriesByPosition.hasOwnProperty(gallery.position)) {
-                galleriesByPosition[gallery.position] += galleryHTML;
-            }
-        });
-    }
-
-    // Process research items
-    const researchItems = critique.research ? critique.research.map(item => `<li>${item}</li>`).join('') : '';
-
-    // Process results cards
-    const resultsCards = critique.results ? critique.results.map(result => `
-        <div class="result-card">
-            <h3>${result.metric}</h3>
-            <p>${result.label}</p>
-        </div>
-    `).join('') : '';
-
-    detailContent.innerHTML = `
-        <section class="project-detail-header">
-            <div class="container">
-                <button class="back-btn" onclick="navigateToPage('critiques')">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-                    </svg>
-                    <span>Back to Critiques</span>
-                </button>
-                <div class="project-detail-title">
-                    <span class="project-category-c">${critique.category}</span>
-                    <h1>${critique.title}</h1>
-                    <p class="project-description">${critique.description}</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="project-detail-image">
-            <div class="container">
-                <img src="${critique.image}" alt="${critique.title}" class="detail-image">
-            </div>
-        </section>
-
-        <section class="project-detail-content">
-            <div class="container">
-                <div class="detail-grid">
-                    <div class="detail-sidebar">
-                        <div class="detail-info">
-                            <h4>Role</h4>
-                            <p>${critique.role}</p>
-                        </div>
-                        <div class="detail-info">
-                            <h4>Timeline</h4>
-                            <p>${critique.timeline}</p>
-                        </div>
-                        <div class="detail-info">
-                            <h4>Team</h4>
-                            <p>${critique.team}</p>
-                        </div>
-                    </div>
-                    
-                    <div class="detail-main">
-                        ${critique.tldr ? `
-                        <!-- TL;DR Section -->
-                        <div class="tldr-section">
-                            <h2 class="tldr-title">TL;DR</h2>
-                            
-                            <div class="tldr-steps">
-                                <!-- Step 1: Project Overview -->
-                                <div class="tldr-step">
-                                    <div class="tldr-step-number">1</div>
-                                    <div class="tldr-step-content">
-                                        <h3>Project Overview</h3>
-                                        <p>${critique.tldr.overview}</p>
-                                    </div>
-                                </div>
-                                
-                                <!-- Step 45: Key Proposals -->
-                                <div class="tldr-step">
-                                    <div class="tldr-step-number">2</div>
-                                    <div class="tldr-step-content">
-                                        <h3>Key Proposals</h3>
-                                        ${critique.tldr.proposals ? `
-                                            <ol class="tldr-proposals-list">
-                                                ${critique.tldr.proposals.map(proposal => `
-                                                    <li>
-                                                        <strong>${proposal.title}</strong> ${proposal.description}
-                                                    </li>
-                                                `).join('')}
-                                            </ol>
-                                        ` : ''}
-                                    </div>
-                                </div>
-                                
-                                <!-- Step 3: Outcome -->
-                                <div class="tldr-step">
-                                    <div class="tldr-step-number">3</div>
-                                    <div class="tldr-step-content">
-                                        <h3>Outcome</h3>
-                                        <p>${critique.tldr.outcome}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Final Product Showcase -->
-                            ${critique.tldr.finalImages && critique.tldr.finalImages.length > 0 ? `
-                            <div class="tldr-final-product">
-                                <div class="tldr-final-images">
-                                    ${critique.tldr.finalImages.map(img => `
-                                        <img src="${img}" alt="Final Product" class="tldr-product-image">
-                                    `).join('')}
-                                </div>
-                            </div>
-                            ` : ''}
-                        </div>
-                        
-                        <!-- Image and Text Section (before galleries) -->
-                        ${critique.imageTextSection ? `
-                        <div class="image-text-section">
-                            <div class="image-text-container">
-                                <div class="image-text-image-wrapper">
-                                    <img src="${critique.imageTextSection.image}" alt="${critique.imageTextSection.title}" class="image-text-image">
-                                </div>
-                                <div class="image-text-content">
-                                    <h3>${critique.imageTextSection.title}</h3>
-                                    <p>${critique.imageTextSection.text}</p>
-                                </div>
-                            </div>
-                        </div>
-                        ` : ''}
-                        
-                        <!-- Brief Section with indented paragraphs -->
-                        ${critique.brief ? renderBriefSection(critique.brief) : ''}
-                        ` : `
-                        <!-- Fallback to original sections if no TL;DR data -->
-                        <div class="detail-section">
-                            <h2>Overview</h2>
-                            <p>${critique.overview}</p>
-                        </div>
-                        
-                        ${galleriesByPosition['after-overview']}
-
-                        <div class="detail-section">
-                            <h2>The Challenge</h2>
-                            <p>${critique.challenge}</p>
-                        </div>
-                        ${galleriesByPosition['after-challenge']}
-
-                        <div class="detail-section">
-                            <h2>Research & Discovery</h2>
-                            <p>Key research activities and findings:</p>
-                            <ul>
-                                ${researchItems}
-                            </ul>
-                        </div>
-                        ${galleriesByPosition['after-research']}
-
-                        <div class="detail-section">
-                            <h2>Solution</h2>
-                            <p>${critique.solution}</p>
-                        </div>
-                        ${galleriesByPosition['after-solution']}
-                        `}
-                        
-                        ${galleriesByPosition['after-overview']}
-                        ${galleriesByPosition['after-challenge']}
-                        ${galleriesByPosition['after-research']}
-                        ${galleriesByPosition['after-solution']}
-
-                        ${critique.tabsSection ? renderTabsSection(critique.tabsSection) : ''}
-                        ${critique.accordionSection ? renderAccordionSection(critique.accordionSection) : ''}
-
-                        ${galleriesByPosition['before-results']}
-                        <div class="detail-section">
-                            <h2>Results</h2>
-                            <div class="results-grid">
-                                ${resultsCards}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section class="contact">
-            <div class="container text-center">
-                <h2>Let's Work Together</h2>
-                <p class="contact-text">
-                    I'm always open to discussing new projects, creative ideas, or 
-                    opportunities to be part of your vision.
-                </p>
-                <div class="contact-links">
-                    <a href="mailto:hello@designer.com" class="contact-link">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                        </svg>
-                        <span>Email</span>
-                    </a>
-                    <a href="https://github.com/yourusername" class="contact-link">
-                        <svg fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                        <span>GitHub</span>
-                    </a>
-                    <a href="https://linkedin.com/in/yourusername" class="contact-link">
-                        <svg fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                        </svg>
-                        <span>LinkedIn</span>
-                    </a>
-                </div>
-            </div>
-        </section>
-    `;
-
-    navigateToPage('critiqueDetail');
-    
-    // Initialize all interactive features after content is loaded
-    setTimeout(() => {
-        initializeCarousels();
-        initializeLightbox(critique);
-        initializeTabs();
-        initializeAccordions();
-    }, 0);
-}
-
+// Start of design observations page
 // Render observations
 function renderObservations() {
     const observationsGrid = document.getElementById('observationsGrid');
@@ -1007,7 +989,7 @@ function renderObservations() {
 }
 
 // Show observation detail page (similar to critique detail)
-function showObservationDetail(observationId) {
+function showObservationDetail(observationId = 1) {
     const observation = observations.find(o => o.id === observationId);
     if (!observation) return;
 
@@ -1096,138 +1078,10 @@ function showObservationDetail(observationId) {
                     ` : ''}
                     
                     <div class="detail-main">
-                        ${observation.tldr ? `
-                        <!-- TL;DR Section -->
-                        <div class="tldr-section">
-                            <h2 class="tldr-title">TL;DR</h2>
-                            
-                            <div class="tldr-steps">
-                                <!-- Step 1: Project Overview -->
-                                <div class="tldr-step">
-                                    <div class="tldr-step-number">1</div>
-                                    <div class="tldr-step-content">
-                                        <h3>Overview</h3>
-                                        <p>${observation.tldr.overview}</p>
-                                    </div>
-                                </div>
-                                
-                                ${observation.tldr.proposals ? `
-                                <!-- Step 2: Key Points -->
-                                <div class="tldr-step">
-                                    <div class="tldr-step-number">2</div>
-                                    <div class="tldr-step-content">
-                                        <h3>Key Points</h3>
-                                        <ol class="tldr-proposals-list">
-                                            ${observation.tldr.proposals.map(proposal => `
-                                                <li>
-                                                    <strong>${proposal.title}</strong> ${proposal.description}
-                                                </li>
-                                            `).join('')}
-                                        </ol>
-                                    </div>
-                                </div>
-                                ` : ''}
-                                
-                                ${observation.tldr.outcome ? `
-                                <!-- Step 3: Takeaway -->
-                                <div class="tldr-step">
-                                    <div class="tldr-step-number">3</div>
-                                    <div class="tldr-step-content">
-                                        <h3>Takeaway</h3>
-                                        <p>${observation.tldr.outcome}</p>
-                                    </div>
-                                </div>
-                                ` : ''}
-                            </div>
-                            
-                            <!-- Final Product Showcase -->
-                            ${observation.tldr.finalImages && observation.tldr.finalImages.length > 0 ? `
-                            <div class="tldr-final-product">
-                                <div class="tldr-final-images">
-                                    ${observation.tldr.finalImages.map(img => `
-                                        <img src="${img}" alt="Example" class="tldr-product-image">
-                                    `).join('')}
-                                </div>
-                            </div>
-                            ` : ''}
-                        </div>
+                        <!-- Problem Statement Section with indented paragraphs -->
+                        ${observation.brief ? renderBriefSection(observation.brief) : ''}  
+                        ${observation.galleries ? getGallery(observation.galleries, 0) : ''}
                         
-                        <!-- Image and Text Section (before galleries) -->
-                        ${observation.imageTextSection ? `
-                        <div class="image-text-section">
-                            <div class="image-text-container">
-                                <div class="image-text-image-wrapper">
-                                    <img src="${observation.imageTextSection.image}" alt="${observation.imageTextSection.title}" class="image-text-image">
-                                </div>
-                                <div class="image-text-content">
-                                    <h3>${observation.imageTextSection.title}</h3>
-                                    <p>${observation.imageTextSection.text}</p>
-                                </div>
-                            </div>
-                        </div>
-                        ` : ''}
-                        
-                        <!-- Brief Section with indented paragraphs -->
-                        ${observation.brief ? renderBriefSection(observation.brief) : ''}
-                        
-                        <!-- Video Section -->
-                        ${observation.videoSection ? renderVideoSection(observation.videoSection) : ''}
-                        ` : `
-                        <!-- Fallback to content if no TL;DR data -->
-                        <div class="detail-section">
-                            <h2>Overview</h2>
-                            ${observation.content ? `<p>${observation.content}</p>` : ''}
-                        </div>
-                        
-                        ${galleriesByPosition['after-overview']}
-
-                        ${observation.challenge ? `
-                        <div class="detail-section">
-                            <h2>Analysis</h2>
-                            <p>${observation.challenge}</p>
-                        </div>
-                        ${galleriesByPosition['after-challenge']}
-                        ` : ''}
-
-                        ${researchItems ? `
-                        <div class="detail-section">
-                            <h2>Key Insights</h2>
-                            <ul>
-                                ${researchItems}
-                            </ul>
-                        </div>
-                        ${galleriesByPosition['after-research']}
-                        ` : ''}
-
-                        ${observation.solution ? `
-                        <div class="detail-section">
-                            <h2>Recommendations</h2>
-                            <p>${observation.solution}</p>
-                        </div>
-                        ${galleriesByPosition['after-solution']}
-                        ` : ''}
-                        
-                        <!-- Video Section (fallback path) -->
-                        ${observation.videoSection ? renderVideoSection(observation.videoSection) : ''}
-                        `}
-                        
-                        ${galleriesByPosition['after-overview']}
-                        ${galleriesByPosition['after-challenge']}
-                        ${galleriesByPosition['after-research']}
-                        ${galleriesByPosition['after-solution']}
-
-                        ${observation.tabsSection ? renderTabsSection(observation.tabsSection) : ''}
-                        ${observation.accordionSection ? renderAccordionSection(observation.accordionSection) : ''}
-
-                        ${resultsCards ? `
-                        ${galleriesByPosition['before-results']}
-                        <div class="detail-section">
-                            <h2>Impact</h2>
-                            <div class="results-grid">
-                                ${resultsCards}
-                            </div>
-                        </div>
-                        ` : ''}
                     </div>
                 </div>
             </div>
@@ -1270,7 +1124,7 @@ function showObservationDetail(observationId) {
 
     // Initialize lightbox and other interactive elements
     setTimeout(() => {
-        initializeLightbox();
+        initializeLightbox(observation);
         initializeTabs();
         initializeAccordions();
     }, 0);
@@ -1525,7 +1379,6 @@ function initializeAccordions() {
 document.addEventListener('DOMContentLoaded', () => {
     setupNavigation();
     renderProjects();
-    renderCritiques();
     renderObservations();
     setupScrollToTop();
 });

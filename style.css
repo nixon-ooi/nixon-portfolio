@@ -587,8 +587,10 @@ p {
 .portfolio-header {
   background: linear-gradient(
     to bottom right,
-    var(--color-blue-50),
-    var(--color-indigo-100)
+    #8BA8E8,
+    #B1C4F1,
+    #D5E0F9,
+    #F0F3FA
   );
 }
 
@@ -603,8 +605,10 @@ p {
 .observations-header {
   background: linear-gradient(
     to bottom right,
-    var(--color-green-50),
-    var(--color-teal-100)
+    #A896C7,
+    #C3BCE8,
+    #DED7F4,
+    #F3F2F8
   );
 }
 
@@ -712,8 +716,8 @@ p {
 .project-category-o {
   display: inline-block;
   padding: 0.25rem 0.75rem;
-  background: var(--color-green-100);
-  color: var(--color-green-600);
+  background: #EAE8F8;
+  color: #5D3AB0;
   font-size: 0.75rem;
   border-radius: 0.5rem;
   margin-bottom: 0.75rem;
@@ -2121,7 +2125,7 @@ p {
 }
 
 .observation-card:hover h3 {
-  color: var(--color-green-600);
+  color: #5D3AB0;
 }
 
 .observation-meta {
@@ -2141,8 +2145,8 @@ p {
 .observation-category {
   display: inline-block;
   padding: 0.25rem 0.75rem;
-  background: var(--color-green-100);
-  color: var(--color-green-700);
+  background: #EAE8F8;
+  color: #5D3AB0;
   font-size: 0.75rem;
   border-radius: 0.5rem;
   margin-bottom: 0.75rem;
@@ -2416,6 +2420,12 @@ p {
 }
 
 .detail-section:last-child {
+  border-bottom: none;
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+
+.learning-points {
   border-bottom: none;
   padding: 2rem;
   border-radius: 0.5rem;

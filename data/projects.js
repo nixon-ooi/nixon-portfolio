@@ -4,14 +4,15 @@
 const projects = [
         {
         id: 1,
+        slug: "healthbuddy",   
         title: 'HealthBuddy - Meds Tracker',
         category: 'Public Health App',
         description: 'Bridging the digital divide to empower caregivers and engage elderly users.',
         image: 'assets/healthbuddy-hero-image.png',
         
-        role: 'Senior UX Designer',
-        timeline: '4 months',
-        team: '3 Designers, 4 Engineers, 1 Security Specialist',
+        role: 'UX Researcher & Designer',
+        timeline: '2 weeks',
+        tags: ['Hypothesis Testing', 'UI', 'Service Design'],
         
         // TL;DR Section (recommended for portfolio detail pages)
         tldr: {
@@ -160,14 +161,15 @@ const projects = [
     },
         {
         id: 2,
+        slug: "olio",        // ← add this is new
         title: 'Olio Food',
         category: 'Food Waste',
         description: 'Turning frustration into impact through strategic design that tackles food waste and builds community',
         image: 'assets/olio-hero-image.png',
         
-        role: 'Senior UX Designer',
-        timeline: '4 months',
-        team: '3 Designers, 4 Engineers, 1 Security Specialist',
+        role: 'Service Designer',
+        timeline: '2 months',
+        tags: ['Service Design', 'KPI & Metrics', 'Micro inter'],
         
         // TL;DR Section (recommended for portfolio detail pages)
         tldr: {
