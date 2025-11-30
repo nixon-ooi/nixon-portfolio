@@ -1895,6 +1895,10 @@ p {
   .image-text-image {
     border-radius: 0.5rem;
   }
+
+  .image-text-content {
+    position: relative;
+  }
   
   .image-text-content h3 {
     font-size: 1.25rem;
@@ -2416,7 +2420,7 @@ p {
 }
 
 .detail-section {
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
 }
 
 .detail-section:last-child {
@@ -2615,8 +2619,16 @@ p {
   position: relative;
   overflow: hidden;
   border-radius: 0.75rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0rem;
   aspect-ratio: 4/3;
+}
+
+.image-text-image-wrapper-2 {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+  aspect-ratio: auto;
 }
 
 .image-text-content h3 {
@@ -2666,6 +2678,7 @@ p {
     gap: 3rem;
   }
 }
+
 
 .results-grid {
   display: grid;
@@ -2762,7 +2775,6 @@ p {
 
 /* Gallery Section */
 .gallery-section {
-  padding-bottom: 1rem;
   /* border-bottom: 1px solid var(--color-gray-200); */
 }
 

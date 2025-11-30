@@ -1035,6 +1035,12 @@ function showCPFObservationDetail() {
             </div>
         </section>
 
+        <section class="project-detail-image">
+            <div class="container">
+                <img src="${observation.image}" alt="${observation.title}" class="detail-image">
+            </div>
+        </section>
+
         <section class="project-detail-content">
             <div class="container">
                 <div class="detail-grid">
@@ -1064,52 +1070,160 @@ function showCPFObservationDetail() {
                     ` : ''}
                     
                     <div class="detail-main">
-                        ${observation.tldr ? `
-                        <!-- TL;DR Section -->
-                        <div class="tldr-section">
-                            <h2 class="tldr-title">TL;DR</h2>
-                            
-                            <div class="tldr-steps">
-                                <!-- Step 1: Project Overview -->
-                                <div class="tldr-step">
-                                    <div class="tldr-step-number">1</div>
-                                    <div class="tldr-step-content">
-                                        <h3>Overview</h3>
-                                        <p>${observation.tldr.overview}</p>
-                                    </div>
-                                </div>
-                                
-                                ${observation.tldr.proposals ? `
-                                <!-- Step 2: Key Points -->
-                                <div class="tldr-step">
-                                    <div class="tldr-step-number">2</div>
-                                    <div class="tldr-step-content">
-                                        <h3>Key Points</h3>
-                                        <ol class="tldr-proposals-list">
-                                            ${observation.tldr.proposals.map(proposal => `
-                                                <li>
-                                                    <strong>${proposal.title}</strong> ${proposal.description}
-                                                </li>
-                                            `).join('')}
-                                        </ol>
-                                    </div>
-                                </div>
-                                ` : ''}
-                                
-                                ${observation.tldr.outcome ? `
-                                <!-- Step 3: Takeaway -->
-                                <div class="tldr-step">
-                                    <div class="tldr-step-number">3</div>
-                                    <div class="tldr-step-content">
-                                        <h3>Takeaway</h3>
-                                        <p>${observation.tldr.outcome}</p>
-                                    </div>
-                                </div>
-                                ` : ''}
+                        ${observation.brief ? renderBriefSection(observation.brief) : ''}
+                        ${observation.imageTextSection ? `
+                        <div class="image-text-section">
+                            <div class="image-text-image-wrapper-2">
+                                ${observation.imageTextSection.image.map(img => `<img src="${img.url}" alt="${img.alt}" class="image-text-image">`).join('')}
                             </div>
                         </div>
-                        
-                        <!-- Image and Text Section (before galleries) -->
+                        ` : ''}   
+                        ${observation.galleries ? getGallery(observation.galleries, 0) : ''}
+                        ${observation.imageTextSection1 ? `
+                        <div class="image-text-section">
+                            <div class="image-text-container">
+                                <div class="image-text-image-wrapper">
+                                    <img src="${observation.imageTextSection1.image}" alt="${observation.imageTextSection1.title}" class="image-text-image">
+                                </div>
+                                <div class="image-text-content">
+                                    <h3>${observation.imageTextSection1.title}</h3>
+                                    <p>${observation.imageTextSection1.description}</p>
+                                </div>
+                            </div>
+                        </div>
+                        ` : ''}    
+                        <!-- Problem Statement Section with indented paragraphs -->
+                        ${observation.brief1 ? renderBriefSection(observation.brief1) : ''}
+                        ${observation.galleries ? getGallery(observation.galleries, 1) : ''}
+                        ${observation.finalImages ? `
+                            <div class="detail-section">
+                                <h3>${observation.finalImages.title}</h3>
+                                ${observation.finalImages.images ? observation.finalImages.images.map(img => `
+                                    <img src="${img.url}" alt="${img.caption}" class="tldr-product-image">
+                                `).join('') : ''}
+                                ${observation.finalImages.paragraphs ? observation.finalImages.paragraphs.map(paragraph => `<p>${paragraph}</p>`).join('') : ''}
+                            </div>
+                        ` : ''}      
+                        ${observation.imageTextSection2 ? `
+                        <div class="image-text-section">
+                            <div class="image-text-image-wrapper-2">
+                                ${observation.imageTextSection2.image.map(img => `<img src="${img.url}" alt="${img.alt}" class="image-text-image">`).join('')}
+                            </div>
+                            <div class="image-text-content">
+                                <h3>${observation.imageTextSection2.title}</h3>
+                                <p>${observation.imageTextSection2.description}</p>
+                            </div>
+                        </div>
+                        ` : ''}  
+                        ${observation.galleries ? getGallery(observation.galleries, 2) : ''}
+                        ${observation.tabsSection ? renderTabsSection(observation.tabsSection) : ''}
+
+                    </div>
+
+                    
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section class="contact">
+            <div class="container text-center">
+                <h2>Let's Work Together</h2>
+                <p class="contact-text">
+                    I'm always open to discussing new projects, creative ideas, or 
+                    opportunities to be part of your vision.
+                </p>
+                <div class="contact-links">
+                    <a href="mailto:nixonooishenrong@gmail.com" class="contact-link">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                        <span>Email</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/nixonooi/" class="contact-link">
+                        <svg fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    `;
+
+    // Initialize interactive elements
+    setTimeout(() => {
+        if (observation.galleries && observation.galleries.length > 0) {
+            initializeCarousels();
+            initializeLightbox(observation);
+        }
+        initializeTabs();
+        initializeAccordions();
+    }, 0);
+
+    navigateToPage('observationDetail');
+}
+
+function showSettingPageDetail() {
+    const observation = observations.find(o => o.id === 2);
+    if (!observation) return;
+
+    const detailContent = document.getElementById('observationDetailContent');
+    if (!detailContent) return;
+
+    detailContent.innerHTML = `
+        <section class="project-detail-header">
+            <div class="container">
+                <button class="back-btn" onclick="navigateToPage('observations')">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                    <span>Back to Observations</span>
+                </button>
+                <div class="project-detail-title">
+                    <span class="project-category-o">${observation.category}</span>
+                    <h1>${observation.title}</h1>
+                    ${observation.excerpt ? `<p class="project-description">${observation.excerpt}</p>` : ''}
+                </div>
+            </div>
+        </section>
+
+        <section class="project-detail-image">
+            <div class="container">
+                <img src="${observation.image}" alt="${observation.title}" class="detail-image">
+            </div>
+        </section>
+
+        <section class="project-detail-content">
+            <div class="container">
+                <div class="detail-grid">
+                    ${observation.date || observation.readTime ? `
+                    <div class="detail-sidebar">
+                        ${observation.date ? `
+                        <div class="detail-info">
+                            <h4>Published</h4>
+                            <p>${observation.date}</p>
+                        </div>
+                        ` : ''}
+                        ${observation.readTime ? `
+                        <div class="detail-info">
+                            <h4>Read Time</h4>
+                            <p>${observation.readTime}</p>
+                        </div>
+                        ` : ''}
+                        ${observation.tags && observation.tags.length > 0 ? `
+                        <div class="detail-info">
+                            <h4>Tags</h4>
+                            <div class="project-tags">
+                                ${observation.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                            </div>
+                        </div>
+                        ` : ''}
+                    </div>
+                    ` : ''}
+                    
+                    <div class="detail-main">
+                        ${observation.brief ? renderBriefSection(observation.brief) : ''}
                         ${observation.imageTextSection ? `
                         <div class="image-text-section">
                             <div class="image-text-container">
@@ -1118,31 +1232,36 @@ function showCPFObservationDetail() {
                                 </div>
                                 <div class="image-text-content">
                                     <h3>${observation.imageTextSection.title}</h3>
-                                    <p>${observation.imageTextSection.text}</p>
+                                    ${observation.imageTextSection.proposals ? `
+                                    <ul class="tldr-proposals-list">
+                                        ${observation.imageTextSection.proposals.map(proposal => `
+                                            <li>
+                                                <strong>${proposal.title}</strong> ${proposal.description}
+                                            </li>
+                                        `).join('')}
+                                    </ul>
+                                     ` : ''}
                                 </div>
                             </div>
                         </div>
-                        ` : ''}
-                        
-                        <!-- Brief Section with indented paragraphs -->
-                        ${observation.brief ? renderBriefSection(observation.brief) : ''}
-                        
-                        <!-- Video Section -->
-                        ${observation.videoSection ? renderVideoSection(observation.videoSection) : ''}
-                        ` : `
-                        <!-- Fallback to content if no TL;DR data -->
-                        <div class="detail-section">
-                            <h2>Overview</h2>
-                            ${observation.content ? `<p>${observation.content}</p>` : ''}
+                        ` : ''}    
+                        ${observation.galleries ? getGallery(observation.galleries, 0) : ''}
+                        <!-- Problem Statement Section with indented paragraphs -->
+                        ${observation.brief1 ? renderBriefSection(observation.brief1) : ''}
+                        ${observation.galleries ? getGallery(observation.galleries, 1) : ''}
+                        ${observation.galleries ? getGallery(observation.galleries, 2) : ''}
+                        ${observation.tabsSection ? renderTabsSection(observation.tabsSection) : ''}    
+                        ${observation.imageTextSection1 ? `
+                        <div class="image-text-section">
+                            <div class="image-text-image-wrapper-2">
+                                ${observation.imageTextSection1.image.map(img => `<img src="${img.url}" alt="${img.alt}" class="image-text-image">`).join('')}
+                            </div>
                         </div>
-                        `}
-                        
-                        <!-- Render galleries -->
-                        ${observation.galleries ? observation.galleries.map((gallery, index) => renderGallery(gallery, index)).join('') : ''}
+                        ` : ''}  
 
-                        ${observation.tabsSection ? renderTabsSection(observation.tabsSection) : ''}
-                        ${observation.accordionSection ? renderAccordionSection(observation.accordionSection) : ''}
                     </div>
+
+                    
                 </div>
             </div>
         </section>
@@ -1196,6 +1315,9 @@ function attachObservationCardHandlers() {
             switch(observationId) {
                 case 1:
                     showCPFObservationDetail();
+                    break;
+                case 2:
+                    showSettingPageDetail();
                     break;
                 // Add more cases here as you create detail pages for other observations
             }
