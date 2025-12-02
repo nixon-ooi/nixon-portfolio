@@ -2612,7 +2612,6 @@ p {
   width: 100%;
   height: auto;
   border-radius: 0.75rem;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 .image-text-image-wrapper {
@@ -2633,6 +2632,7 @@ p {
 
 .image-text-content h3 {
   color: var(--color-gray-900);
+  font-size: 1.5rem;
   margin-bottom: 1rem;
 }
 
@@ -2640,6 +2640,7 @@ p {
   color: var(--color-gray-700);
   line-height: 1.7;
   margin: 0;
+  font-size: 1.0625rem;
 }
 
 /* Mobile TL;DR adjustments */

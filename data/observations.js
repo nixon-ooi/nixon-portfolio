@@ -15,6 +15,116 @@
 const observations = [
     {
     id: 1,
+    slug: 'nixon-portfolio',
+    title: 'Designing My Portfolio',
+    image: 'assets/designing-world-cover.webp',
+    category: 'Personal Development',
+    date: 'December 4, 2025',
+    readTime: '8 min read',
+    excerpt: 'A quick look into the design process behind my personal portfolio website, highlighting key decisions and features implemented to enhance user experience.',
+    tags: ['Spatial Computing', 'Future of Design', '3D UI'],
+
+
+    overview: 'Based on a UX Audit and Johari Window, this project showcases my advanced Visual/UI Design (Level 5) and Interaction Design (Level 4) skills. It is an end-to-end demonstration of my design process, focusing on transforming Research & Discovery (Level 4) and Testing & Evaluation (Level 4) into seamless service experiences, fulfilling my goal as a Service Designer.',
+
+
+    // Image Galleries
+    galleries: [
+        {
+            type: 'grid-2x2',
+            title: 'Moodboard',
+            description: 'This portfolio represents me as a holistic Service Designer who connects the business strategy with the feasibility of the front-end. My mantra, "Technology enables, but design establishes," reflects my focus on crafting seamless, holistic service journeys. I create work that balances deep user empathy with critical design critiques.',
+            images: [
+            { url: 'assets/digital-world-moodboard-1.png', caption: 'Expressive visuals & overall tone illustrates the designer’s fun, casual outlook of design.' },
+            { url: 'assets/digital-world-moodboard-2.png', caption: 'Eye catching layout of case studies attracts viewers to explore more content.' },
+            { url: 'assets/digital-world-moodboard-3.png', caption: 'Overall tone of voice and imagery used invoke a sense of confidence I want for my own portfolio.' },
+            { url: 'assets/digital-world-moodboard-4.png', caption: 'Usage of behind-the-scenes photos to show the development of the project gives depth beyond prototype and graphs.' },                        
+                ]
+        },
+        {
+            type: 'carousel',
+            title: 'Sketches and Wireframes',
+            description: 'There are currently 2 layers of protection to ensure identity verification. The first layer is the login credentials (username and password) and the second layer is the 2FA (Two-Factor Authentication) via SMS or email. Along with these security measures, CPF Board has also initiated public education campaigns to raise awareness about common scams and promote safe online practices among its users.',
+            images: [
+                { url: 'assets/digital-world-sketch-1.webp', caption: 'Building blocks of components' },
+                { url: 'assets/digital-world-sketch-2.webp', caption: 'Home Page' },
+                { url: 'assets/digital-world-sketch-3.webp', caption: 'Portfolio Page' },
+                { url: 'assets/digital-world-sketch-4.webp', caption: 'Design Observations' },
+            ]
+        },
+        {
+            type: 'grid-2x2',
+            title: 'Work-in-progress',
+            description: 'Iterative adjustments were very much geared towards optimizing readability of content and the interaction of users. To better highlight key insights, I introduced a different background color to bring notice to the section "Learning Points". I also integrated lightbox functionality, which would allow viewers to look closer at high-fidelity images and artefacts without losing their position on the page. <br><br> My original design concept for the primary portfolio index included a three-column tile layout that was static in position. When I considered examples of successful design portfolios, I quickly realised this was not a very exciting or rhythmic. I switched to an asymmetrical, alternating layout. By doing so, this design forces the visitor into a Z-pattern scan of the screen to help them get through and enjoy each project in a more inviting way.',
+            images: [
+            { url: 'assets/digital-world-wip-1.webp', caption: 'Highlighting sections' },
+            { url: 'assets/digital-world-wip-2.webp', caption: 'Lightbox to view images' },
+            { url: 'assets/digital-world-wip-3.webp', caption: 'Original 3 column tile' },
+            { url: 'assets/digital-world-wip-4.webp', caption: ' New alternating layout' },                        
+                ]
+        },
+        {
+            type: 'carousel',
+            title: 'Personal Branding',
+            images: [
+                { url: 'assets/digital-world-personal-branding-1.webp', caption: 'Business Card' },
+                { url: 'assets/digital-world-personal-branding-2.webp', caption: 'LinkedIn Profile' },
+            ]
+        },
+    ],
+    // Image and Text Section
+    imageTextSection: {
+        image: [ 
+            { url: 'assets/digital-world-tools.webp', alt: 'Tools I used to develop my site' },             
+        ],
+        title: 'Choice of Tools',
+        description: 'The decision to code my professional portfolio with VS Code and host it on GitHub was a strategic move that would employ my technical skill and ensure design fidelity. <br><br>VS Code provided the familiar and efficient development environment needed to translate the design concepts into functional HTML and CSS with ease and built-in code helpers. Utilising Gemini proved crucial in accelerating development, letting me translate complex component descriptions directly from my sketches into clean, working code. Further, this approach demonstrates my ability to bridge the gap between high-level Visual Design Level 5 and Interaction Design Level 4 with the technical feasibility of front-end development.' 
+    },
+
+    imageTextSection1: {
+        image: [ 
+            { url: 'assets/digital-world-style-tile.webp', alt: 'Design Style Tile' },             
+        ],
+        title: 'Design Style Tile',
+        description: 'The style tile represents an important pivot from the initial broader inspiration of the moodboard. It successfully codified the direction into a defined, measurable system by finalising the three-color palette and establishing the Barlow - Inter font pairing. This evolution will make sure that the final portfolio design is consistent, professional, and reflects my detailed approach in Visual/UI Design at Level 5.' 
+    },
+
+
+
+
+
+
+    brief1: {
+        title: 'Problem Statement',
+        paragraphs: [
+            'The core problem is the low, inconsistent use of digital health tools by caretakers and the elderly, which leads to poor medication adherence and prevents the collection of crucial side effect data.',
+            {
+                text: 'How might we design a medication management system that is as reliable and intuitive as an alarm clock, so that caretakers and elderly users consistently log their medication and side effects?',
+                indent: true
+            }
+    ]
+    },
+    tabsSection: {
+        title: 'Insights from Testing',
+        tabs: [
+            {
+                label: 'Synthesis of findings',
+                content: '<p>The research confirmed the hypothesis was correct. People took more time to understand the message before closing the alert. The imagery and design of the message brought a heavier tone the consequence of fraud.</p>'
+            },
+            {
+                label: 'What was found',
+                content: '<p>User test showed that people took more serious mindset and adopted a “high alert” perception.</p>'
+            },
+            {
+                label: 'Why it matters',
+                content: '<p>Directly addressing people who are attempting to commit fraud elevates the overall awareness and efforts by the authority. This transparency serves to hold offenders accountable, communicate societal values of denunciation.</p>'
+            }
+        ]
+    },
+
+    },
+    {
+    id: 2,
     slug: 'cpf-unauthorised',
     title: 'CPF unauthorised withdrawal',
     image: 'assets/cpf-cover.jpeg',
@@ -127,7 +237,7 @@ const observations = [
 
     },
     {
-    id: 2,
+    id: 3,
     slug: 'setting-page-banking',
     title: 'Restructuring Settings (Banking)',
     image: 'assets/banking-cover.png',
