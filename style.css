@@ -292,7 +292,7 @@ p {
     #D4C5F9   /* Soft Purple */
   );
   background-size: 400% 400%;
-  animation: japaneseGradient 20s ease infinite;
+  animation: japaneseGradient 40s ease infinite;
   display: flex;
   align-items: center;
 }
