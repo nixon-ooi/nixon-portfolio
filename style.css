@@ -2328,6 +2328,18 @@ p {
     font-size: 1.2rem;
     line-height: 1.85;
   }
+
+  .detail-grid {
+        grid-template-columns: 250px 1fr;
+        gap: 4rem;
+    }
+
+  .detail-sidebar {
+      position: sticky;
+      top: 2rem;
+      align-self: start;
+      z-index: 10;
+  }
 }
 
 /* Menu and Close Icons */
@@ -2395,6 +2407,10 @@ p {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  position: sticky;
+  top: 2rem;
+  align-self: start;
+  z-index: 10;
 }
 
 /* Allow grid/flex children to shrink on small screens and avoid causing horizontal overflow */
@@ -2715,6 +2731,10 @@ p {
   .detail-sidebar {
     border-bottom: none;
     padding-bottom: 0;
+    position: sticky;
+    top: 2rem;
+    align-self: start;
+    z-index: 10;
   }
   
   .project-detail-content {
