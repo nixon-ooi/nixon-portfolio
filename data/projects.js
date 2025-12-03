@@ -12,7 +12,7 @@ const projects = [
         
         role: 'UX Researcher & Designer',
         timeline: '2 weeks',
-        tags: ['Hypothesis Testing', 'UI', 'Service Design'],
+        tags: ['UX Research', 'Accessibility (WCAG)', 'Journey Mapping'],
         
         // TL;DR Section (recommended for portfolio detail pages)
         tldr: {
@@ -169,7 +169,7 @@ const projects = [
         
         role: 'Service Designer',
         timeline: '2 months',
-        tags: ['Service Design', 'KPI & Metrics', 'Micro inter'],
+        tags: ['Service Design', 'Design Thinking', 'Prototyping'],
         
         // TL;DR Section (recommended for portfolio detail pages)
         tldr: {

@@ -22,7 +22,7 @@ const observations = [
     date: 'December 4, 2025',
     readTime: '8 min read',
     excerpt: 'A quick look into the design process behind my personal portfolio website, highlighting key decisions and features implemented to enhance user experience.',
-    tags: ['Spatial Computing', 'Future of Design', '3D UI'],
+    tags: ['Design Thinking', 'Wireframing', 'Prototyping'],
 
 
     overview: 'Based on a UX Audit and Johari Window, this project showcases my advanced Visual/UI Design (Level 5) and Interaction Design (Level 4) skills. It is an end-to-end demonstration of my design process, focusing on transforming Research & Discovery (Level 4) and Testing & Evaluation (Level 4) into seamless service experiences, fulfilling my goal as a Service Designer.',
@@ -134,7 +134,7 @@ const observations = [
     date: 'October 25, 2025',
     readTime: '5 min read',
     excerpt: 'The system\'s reliance on login credentials fails to prevent insider fraud when trusted individuals compromise account security.',
-    tags: ['Spatial Computing', 'Future of Design', '3D UI'],
+    tags: ['UX Research', 'User Flows', 'Design Sprints'],
 
 
     // Brief Section (for additional context)
@@ -247,7 +247,7 @@ const observations = [
     date: 'October 20, 2025',
     readTime: '5 min read',
     excerpt: 'Navigating through settings in banking apps can be cumbersome. A well-structured settings page enhances user experience by making it easier to find and adjust preferences.',
-    tags: ['Hypothesis', 'Future of Design', '3D UI'],
+    tags: ['Information Architecture (IA)', 'UX Audit', 'Stakeholder Management'],
 
 
     // Brief Section (for additional context)
@@ -354,7 +354,7 @@ const observations = [
     date: 'September 14, 2025',
     readTime: '5 min read',
     excerpt: 'The current selection process in the Switch app is cumbersome and unintuitive, leading to user frustration and abandonment of bookings.',
-    tags: ['Hypothesis', 'Future of Design', '3D UI'],
+    tags: ['Service Blueprinting', 'Journey Mapping', 'Cross-functional Collaboration'],
 
 
     // Brief Section (for additional context)
