@@ -2443,7 +2443,6 @@ p {
 
 .detail-section:last-child {
   border-bottom: none;
-  padding: 2rem;
   border-radius: 0.5rem;
 }
 

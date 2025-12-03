@@ -27,6 +27,8 @@ const observations = [
 
     overview: 'Based on a UX Audit and Johari Window, this project showcases my advanced Visual/UI Design (Level 5) and Interaction Design (Level 4) skills. It is an end-to-end demonstration of my design process, focusing on transforming Research & Discovery (Level 4) and Testing & Evaluation (Level 4) into seamless service experiences, fulfilling my goal as a Service Designer.',
 
+    overview1: 'Anonymised peer and industry feedback highlighted a strong initial appeal, praising the personal feel and overall design aesthetic. The expansion of images via lightbox, in particular, was noted as a key feature. Critical analysis suggested refinement of the identity of the logo and ensuring text is readable when overlaid on certain images. Usability wise, i can try experimenting with a sticky sidebar and adding a "Next Project" button to encourage site exploration. <br><br> I learnt to have visual restraint, I should tune animated elements such as the gradient movement so it complements and does not detract from the primary content. This furthered the principle that in presenting case studies, conciseness and clarity must be foremost.',
+
 
     // Image Galleries
     galleries: [
@@ -351,7 +353,7 @@ const observations = [
     category: 'Improving current systems',
     date: 'September 14, 2025',
     readTime: '5 min read',
-    excerpt: 'Navigating through settings in banking apps can be cumbersome. A well-structured settings page enhances user experience by making it easier to find and adjust preferences.',
+    excerpt: 'The current selection process in the Switch app is cumbersome and unintuitive, leading to user frustration and abandonment of bookings.',
     tags: ['Hypothesis', 'Future of Design', '3D UI'],
 
 

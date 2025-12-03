@@ -1101,7 +1101,14 @@ function showDesigningMyPortfolio() {
                         </div>
                         ` : ''}  
                         ${observation.galleries ? getGallery(observation.galleries, 2) : ''}   
-                        ${observation.galleries ? getGallery(observation.galleries, 3) : ''}   
+                        ${observation.galleries ? getGallery(observation.galleries, 3) : ''}
+                        <div class="detail-main">
+                        ${observation.overview1 ? `
+                        <div class="detail-section">
+                            <h3>Feedback</h3>
+                            <p>${observation.overview1}</p>
+                        </div>
+                        ` : ''}                           
                     </div>                  
                 </div>
             </div>
