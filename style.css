@@ -443,7 +443,7 @@ p {
 
 .contact-text {
   color: var(--color-gray-600);
-  max-width: 35rem;
+  max-width: 30rem;
   margin: 0 auto 2rem;
 }
 

@@ -343,5 +343,85 @@ const observations = [
     },
 
     },
+    {
+    id: 4,
+    slug: 'selection-process-switch',
+    title: 'Reviewing the selection process (Switch App)',
+    image: 'assets/switch-cover.webp',
+    category: 'Improving current systems',
+    date: 'September 14, 2025',
+    readTime: '5 min read',
+    excerpt: 'Navigating through settings in banking apps can be cumbersome. A well-structured settings page enhances user experience by making it easier to find and adjust preferences.',
+    tags: ['Hypothesis', 'Future of Design', '3D UI'],
+
+
+    // Brief Section (for additional context)
+    brief: {
+        title: 'Brief',
+        paragraphs: [
+            'A design sprint to apply observational studies and critical thinking to enhance a user flow.',
+            {
+                text: 'Switch is a platform that provides on-demand access to a network of workspaces, including private booths, desks, and meeting rooms in locations like shopping malls and transit hubs.',
+                indent: true
+            },
+            'I am going to look into the services industry particularly on <strong>Switch Workspaces</strong>.'
+        ]
+    },
+
+    imageTextSection: {
+        image: [ 
+            { url: 'assets/switch-sitemap.webp', alt: 'site map provides an overview on tasks and functionality the app provides' },             
+        ],
+        title: 'Investigating site structure ',
+    },
+
+    learningpoints: {
+        title: 'Learning Points',
+        proposals: [
+            {
+                description: 'I learnt that making an impact does not necessarily mean having a big change. Instead, using informative insights is more meaningful to the purpose of the project.'
+            },
+            {
+                description: 'Utilising the framework of “Work on something bite sized, gain feedback, reiterate, repeat” has helped me accelerate the needs and shortfall of my redesign.'
+            },
+            {
+                description: 'Replicating the interface taught me the importance of analysing the sequences of animation that has been featured and incorporate into my own mockup.'
+            },
+        ]
+    },
+
+    // Image Galleries
+    galleries: [
+        {
+            type: 'carousel',
+            title: 'Secondary Research',
+            images: [
+            { url: 'assets/switch-competitor-1.webp', caption: '' },
+            { url: 'assets/switch-competitor-2.webp', caption: '' }
+                ]
+        },
+        {
+            type: 'grid-2x2',
+            title: 'Low fidelity Prototype',
+            description: 'Rapid sketching allowed me to explore design patterns seen amongst competitor applications. This also helped identify screen sequencing as well as swiping/touch gestures that would ensure a smooth flow of information.',
+            images: [
+            { url: 'assets/switch-lowfi-1.webp', caption: 'On-boarding' },
+            { url: 'assets/switch-lowfi-2.webp', caption: 'Home Page' },
+            { url: 'assets/switch-lowfi-3.webp', caption: 'Location Listing' },
+            { url: 'assets/switch-lowfi-4.webp', caption: 'Ending a session' }
+            
+                ]
+        },
+        {
+            type: 'carousel',
+            title: 'Recommendations',
+            images: [
+            { url: 'assets/switch-recommend-1.webp', caption: '' },
+            { url: 'assets/switch-recommend-2.webp', caption: '' },
+            { url: 'assets/switch-recommend-3.webp', caption: '' },            
+                ]
+        },
+    ],
+},
 
 ];
