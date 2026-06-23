@@ -275,21 +275,20 @@ p {
   display: block;
 }
 
-/* Hero Section with Animated Japanese Gradients */
+/* Hero Section */
 .hero {
   padding: 5rem 0;
   position: relative;
   overflow: hidden;
-  min-height: 91vh;
-  /* Soft Japanese gradient colors inspired by nature */
+  min-height: 55vh;
   background: linear-gradient(
-    -45deg, 
-    #FFB7C5,  /* Cherry Blossom Pink */
-    #FFC9E5,  /* Soft Peach */
-    #B4A7D6,  /* Lavender Mist */
-    #A7C7E7,  /* Sky Blue */
-    #FFE5B4,  /* Peach */
-    #D4C5F9   /* Soft Purple */
+    -45deg,
+    #fdfcfb,
+    #f3eff8,
+    #edf4fb,
+    #f5fbf3,
+    #fdf6ee,
+    #f0eefb
   );
   background-size: 400% 400%;
   animation: japaneseGradient 40s ease infinite;
@@ -3025,6 +3024,7 @@ p {
   text-align: center;
   opacity: 0;
   transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
 .gallery-image-wrapper:hover .gallery-image-caption {
@@ -3200,6 +3200,306 @@ p {
     width: 1.25rem;
     height: 1.25rem;
   }
+}
+
+/* Typewriter effect */
+.hero-typewriter {
+  font-size: 1.75rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: #1a1a1a;
+  line-height: 1.3;
+  margin-bottom: 2rem;
+  min-height: 2.4em;
+  opacity: 0;
+  animation: slowFadeIn 1.2s ease-out 0.6s forwards;
+}
+
+.typewriter-prefix {
+  color: #1a1a1a;
+}
+
+.typewriter-text {
+  color: #1a1a1a;
+  background: rgba(159, 197, 78, 0.18);
+  border: 1.5px solid rgba(159, 197, 78, 0.5);
+  padding: 0.05em 0.35em;
+  border-radius: 0.3em;
+}
+
+.typewriter-cursor {
+  font-weight: 300;
+  color: var(--color-primary);
+  animation: cursorBlink 0.7s step-end infinite;
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* Next / Previous item navigation */
+.item-nav {
+  padding: 0;
+  background: var(--color-white);
+  border-top: 1px solid var(--color-gray-200);
+}
+
+.item-nav-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.item-nav-card {
+  padding: 2rem 2.5rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: background 0.2s;
+}
+
+.item-nav-card:hover {
+  background: var(--color-gray-50);
+}
+
+.item-nav-prev {
+  border-right: 1px solid var(--color-gray-200);
+}
+
+.item-nav-next {
+  text-align: right;
+}
+
+.item-nav-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-gray-600);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.item-nav-next .item-nav-label {
+  justify-content: flex-end;
+}
+
+.item-nav-label svg {
+  width: 13px;
+  height: 13px;
+}
+
+.item-nav-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-gray-900);
+  line-height: 1.3;
+  transition: color 0.2s;
+}
+
+.item-nav-card:hover .item-nav-title {
+  color: var(--color-gray-600);
+}
+
+@media (max-width: 640px) {
+  .item-nav-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .item-nav-prev {
+    border-right: none;
+    border-bottom: 1px solid var(--color-gray-200);
+  }
+
+  .item-nav-card {
+    padding: 1.5rem;
+  }
+
+  .item-nav-next {
+    text-align: left;
+  }
+
+  .item-nav-next .item-nav-label {
+    justify-content: flex-start;
+  }
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 1.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(26, 26, 26, 0.4);
+  animation: scrollBounce 2s ease-in-out infinite;
+  cursor: pointer;
+}
+
+.scroll-indicator svg {
+  width: 28px;
+  height: 28px;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0);   opacity: 0.4; }
+  50%       { transform: translateX(-50%) translateY(8px); opacity: 0.8; }
+}
+
+/* Hero greeting */
+.hero-greeting {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #2a2a2a;
+  margin-bottom: 0.25rem;
+  opacity: 0;
+  animation: slowFadeIn 1s ease-out 0s forwards;
+}
+
+/* Skills Strip */
+.skills-strip {
+  padding: 1.25rem 0;
+  background: var(--color-white);
+  border-top: 1px solid var(--color-gray-200);
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.skills-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+}
+
+.skill-chip {
+  padding: 0.35rem 1rem;
+  background: var(--color-gray-50);
+  color: var(--color-gray-700);
+  font-size: 0.82rem;
+  font-weight: 500;
+  border-radius: 2rem;
+  border: 1.5px solid var(--color-gray-200);
+  font-family: var(--font-body);
+  white-space: nowrap;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.skill-chip:hover {
+  border-color: var(--color-primary);
+  color: var(--color-gray-900);
+}
+
+/* About punchline */
+.about-punchline {
+  font-weight: 600 !important;
+  color: var(--color-gray-900) !important;
+  margin-top: 0.5rem;
+}
+
+/* Featured Work Section */
+.featured-work {
+  padding: 4rem 0;
+  background: var(--color-gray-50);
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .featured-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.featured-card {
+  background: var(--color-white);
+  border-radius: 1rem;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.25s, box-shadow 0.25s;
+  border: 1px solid var(--color-gray-200);
+}
+
+.featured-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+}
+
+.featured-card-image {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.featured-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s;
+}
+
+.featured-card:hover .featured-card-image img {
+  transform: scale(1.04);
+}
+
+.featured-category-badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--color-gray-700);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 2rem;
+  backdrop-filter: blur(4px);
+  letter-spacing: 0.02em;
+}
+
+.featured-card-content {
+  padding: 1.5rem;
+}
+
+.featured-card-content h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-gray-900);
+}
+
+.featured-card-content p {
+  color: var(--color-gray-600);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.featured-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--color-gray-900);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.featured-card-link svg {
+  width: 15px;
+  height: 15px;
+  transition: transform 0.2s;
+}
+
+.featured-card:hover .featured-card-link svg {
+  transform: translateX(4px);
+}
+
+.featured-work-cta {
+  text-align: center;
 }
 
 /* Centered Hero Layout */
@@ -3622,3 +3922,67 @@ p {
     opacity: 0;
   }
 }
+
+/* =============================================
+   Mobile fixes
+   ============================================= */
+
+/* Hero — scale down typewriter on small screens */
+@media (max-width: 640px) {
+  .hero-typewriter {
+    font-size: 1.25rem;
+    min-height: 3em;
+  }
+
+  .hero-greeting {
+    font-size: 1rem;
+  }
+
+
+  /* Scroll indicator — give it more room on short viewports */
+  .scroll-indicator {
+    bottom: 1rem;
+  }
+
+  /* Hero buttons — stack on very small screens */
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-buttons .btn-primary,
+  .hero-buttons .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Featured work cards — full width on mobile (already handled but
+   ensure content padding is comfortable) */
+@media (max-width: 640px) {
+  .featured-card-content {
+    padding: 1.25rem;
+  }
+
+  .featured-card-content h3 {
+    font-size: 1.1rem;
+  }
+}
+
+/* Detail pages — single column sidebar on mobile */
+@media (max-width: 768px) {
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-sidebar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .detail-sidebar .detail-info {
+    flex: 1 1 140px;
+  }
+}
+
