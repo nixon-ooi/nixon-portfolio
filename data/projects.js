@@ -1,116 +1,5 @@
 const projects = [
     {
-        id: 2,
-        slug: 'olio',
-        title: 'Olio Food',
-        category: 'Food Waste',
-        description: 'Turning frustration into impact through strategic design that tackles food waste and builds community',
-        image: 'assets/olio-hero-image.png',
-
-        role: 'Service Designer',
-        timeline: '2 months',
-        tags: ['Service Design', 'Design Thinking', 'Prototyping'],
-
-        tldr: {
-            overview: 'Redesigned the selection process to improve engagement, strengthen community, and reduce food waste.',
-            proposals: [
-                {
-                    title: 'Gamification & Points System:',
-                    description: 'Introduce a rewards-based system to incentivize positive behavior and increase user retention.'
-                },
-                {
-                    title: 'Hyper-Local Community Discovery:',
-                    description: 'Help users connect and build trust with their neighbors, fostering a social and community-driven experience.'
-                },
-                {
-                    title: 'Streamlined Requesting Flow:',
-                    description: 'Simplify the request and communication process to reduce user friction and increase the reliability of transactions.'
-                }
-            ],
-            outcome: 'An intuitive and engaging experience that increase user retention and community building, ultimately boosting the app\'s overall effectiveness in combating food waste.',
-        },
-
-        overview: 'The organisation requires you to build on your existing research by exploring and identifying the business needs, competitors, and success metrics. Along with the user research you have already gathered, these insights will inform a high-fidelity prototype.',
-
-        sections: [
-            {
-                type: 'gallery',
-                galleryType: 'carousel',
-                title: 'Secondary Research',
-                images: [
-                    { url: 'assets/olio-competitor-1.png', caption: 'Competitor Landscape' },
-                    { url: 'assets/olio-competitor-2.png', caption: 'UX Audit' },
-                    { url: 'assets/olio-competitor-3.png', caption: 'Competitor Testing' },
-                    { url: 'assets/olio-competitor-4.png', caption: 'Competitor Testing Screens' },
-                    { url: 'assets/olio-competitor-5.png', caption: 'Learning Points from Competitor Testing' },
-                ]
-            },
-            {
-                type: 'brief',
-                title: 'UX Metrics & Service Blueprint',
-                paragraphs: [
-                    'Olio\'s mission to reduce food waste depends significantly on active user involvement. Tracking community engagement metrics is essential for evaluating the platform\'s efficacy in cultivating a connected and engaged user community.',
-                    {
-                        text: 'Using Google\'s HEART framework, product teams can focus on user-centered metrics to make data-driven decisions, prioritize development efforts, and align UX improvements with business goals.',
-                        indent: true
-                    }
-                ]
-            },
-            {
-                type: 'gallery',
-                galleryType: 'carousel',
-                description: 'The service blueprint helped to see the bottle necks in the service provided. Using data gathered from other parts of research, the points highlighted in red are parts which the redesign will tackle.',
-                images: [
-                    { url: 'assets/olio-heart-framework.png', caption: 'Google Heart Framework' },
-                    { url: 'assets/olio-service-blueprint.png', caption: 'Service Blueprint' },
-                ]
-            },
-            {
-                type: 'gallery',
-                galleryType: 'carousel',
-                title: 'Initial Prototype',
-                images: [
-                    { url: 'assets/olio-mockup-1.png', caption: 'Redesigned Home Page' },
-                    { url: 'assets/olio-mockup-2.png', caption: 'Redesigned Explore Page' },
-                    { url: 'assets/olio-mockup-3.png', caption: 'Redesigned Community Page' },
-                    { url: 'assets/olio-mockup-4.png', caption: 'Introduction of Games' },
-                ]
-            },
-            {
-                type: 'gallery',
-                galleryType: 'grid-2x2',
-                title: 'Insights from Testing',
-                description: 'Testing the prototype with users provided insights into usability issues and areas for improvement. Key findings included confusion around the points system, the need for clearer sectioning in detailed listings, and the desire for more comprehensive information to build trust among users.',
-                images: [
-                    { url: 'assets/olio-testing-insights-1.png', caption: 'Key Themes of Insights' },
-                    { url: 'assets/olio-testing-insights-2.png', caption: 'Unsure of how the point system works' },
-                    { url: 'assets/olio-testing-insights-3.png', caption: 'Detailed listing has clearer sections' },
-                    { url: 'assets/olio-testing-insights-4.png', caption: 'More Details can be added for clarity' },
-                ]
-            },
-            {
-                type: 'gallery',
-                galleryType: 'carousel',
-                title: 'Improvements After Testing',
-                images: [
-                    { url: 'assets/olio-mockup-after-testing-1.png', caption: 'Onboarding process' },
-                    { url: 'assets/olio-mockup-after-testing-2.png', caption: 'Product Page' },
-                    { url: 'assets/olio-mockup-after-testing-3.png', caption: 'Community Page' },
-                    { url: 'assets/olio-mockup-after-testing-4.png', caption: 'Games Page' },
-                ]
-            },
-            {
-                type: 'learning-points',
-                title: 'Learning Points',
-                proposals: [
-                    { description: 'Making an impact doesn\'t require a big change. Informative insights are more meaningful for the project.' },
-                    { description: 'Using the "Work on something small, get feedback, iterate, repeat" framework has sped up my redesign process.' },
-                    { description: 'Replicating the interface highlighted the significance of analyzing featured animations and integrating them into my mockup.' },
-                ]
-            },
-        ]
-    },
-    {
         id: 3,
         slug: 'ecopark',
         title: 'EcoPark',
@@ -354,6 +243,117 @@ const projects = [
                     { description: 'Take time to synthesis user interviews.' },
                     { description: 'Allow users to understand where they are in the process.' },
                     { description: 'Unnecessary sectionising creates friction.' },
+                ]
+            },
+        ]
+    },
+    {
+        id: 2,
+        slug: 'olio',
+        title: 'Olio Food',
+        category: 'Food Waste',
+        description: 'Turning frustration into impact through strategic design that tackles food waste and builds community',
+        image: 'assets/olio-hero-image.png',
+
+        role: 'Service Designer',
+        timeline: '2 months',
+        tags: ['Service Design', 'Design Thinking', 'Prototyping'],
+
+        tldr: {
+            overview: 'Redesigned the selection process to improve engagement, strengthen community, and reduce food waste.',
+            proposals: [
+                {
+                    title: 'Gamification & Points System:',
+                    description: 'Introduce a rewards-based system to incentivize positive behavior and increase user retention.'
+                },
+                {
+                    title: 'Hyper-Local Community Discovery:',
+                    description: 'Help users connect and build trust with their neighbors, fostering a social and community-driven experience.'
+                },
+                {
+                    title: 'Streamlined Requesting Flow:',
+                    description: 'Simplify the request and communication process to reduce user friction and increase the reliability of transactions.'
+                }
+            ],
+            outcome: 'An intuitive and engaging experience that increase user retention and community building, ultimately boosting the app\'s overall effectiveness in combating food waste.',
+        },
+
+        overview: 'The organisation requires you to build on your existing research by exploring and identifying the business needs, competitors, and success metrics. Along with the user research you have already gathered, these insights will inform a high-fidelity prototype.',
+
+        sections: [
+            {
+                type: 'gallery',
+                galleryType: 'carousel',
+                title: 'Secondary Research',
+                images: [
+                    { url: 'assets/olio-competitor-1.png', caption: 'Competitor Landscape' },
+                    { url: 'assets/olio-competitor-2.png', caption: 'UX Audit' },
+                    { url: 'assets/olio-competitor-3.png', caption: 'Competitor Testing' },
+                    { url: 'assets/olio-competitor-4.png', caption: 'Competitor Testing Screens' },
+                    { url: 'assets/olio-competitor-5.png', caption: 'Learning Points from Competitor Testing' },
+                ]
+            },
+            {
+                type: 'brief',
+                title: 'UX Metrics & Service Blueprint',
+                paragraphs: [
+                    'Olio\'s mission to reduce food waste depends significantly on active user involvement. Tracking community engagement metrics is essential for evaluating the platform\'s efficacy in cultivating a connected and engaged user community.',
+                    {
+                        text: 'Using Google\'s HEART framework, product teams can focus on user-centered metrics to make data-driven decisions, prioritize development efforts, and align UX improvements with business goals.',
+                        indent: true
+                    }
+                ]
+            },
+            {
+                type: 'gallery',
+                galleryType: 'carousel',
+                description: 'The service blueprint helped to see the bottle necks in the service provided. Using data gathered from other parts of research, the points highlighted in red are parts which the redesign will tackle.',
+                images: [
+                    { url: 'assets/olio-heart-framework.png', caption: 'Google Heart Framework' },
+                    { url: 'assets/olio-service-blueprint.png', caption: 'Service Blueprint' },
+                ]
+            },
+            {
+                type: 'gallery',
+                galleryType: 'carousel',
+                title: 'Initial Prototype',
+                images: [
+                    { url: 'assets/olio-mockup-1.png', caption: 'Redesigned Home Page' },
+                    { url: 'assets/olio-mockup-2.png', caption: 'Redesigned Explore Page' },
+                    { url: 'assets/olio-mockup-3.png', caption: 'Redesigned Community Page' },
+                    { url: 'assets/olio-mockup-4.png', caption: 'Introduction of Games' },
+                ]
+            },
+            {
+                type: 'gallery',
+                galleryType: 'grid-2x2',
+                title: 'Insights from Testing',
+                description: 'Testing the prototype with users provided insights into usability issues and areas for improvement. Key findings included confusion around the points system, the need for clearer sectioning in detailed listings, and the desire for more comprehensive information to build trust among users.',
+                images: [
+                    { url: 'assets/olio-testing-insights-1.png', caption: 'Key Themes of Insights' },
+                    { url: 'assets/olio-testing-insights-2.png', caption: 'Unsure of how the point system works' },
+                    { url: 'assets/olio-testing-insights-3.png', caption: 'Detailed listing has clearer sections' },
+                    { url: 'assets/olio-testing-insights-4.png', caption: 'More Details can be added for clarity' },
+                ]
+            },
+            {
+                type: 'gallery',
+                galleryType: 'carousel',
+                title: 'Improvements After Testing',
+                images: [
+                    { url: 'assets/olio-mockup-after-testing-1.png', caption: 'Onboarding process' },
+                    { url: 'assets/olio-mockup-after-testing-2.png', caption: 'Product Page' },
+                    { url: 'assets/olio-mockup-after-testing-3.png', caption: 'Community Page' },
+                    { url: 'assets/olio-mockup-after-testing-4.png', caption: 'Games Page' },
+                ]
+            },
+            {
+                type: 'learning-points',
+                title: 'Learning Points',
+                proposals: [
+                    { description: 'Making an impact doesn\'t require a big change. Informative insights are more meaningful for the project.' },
+                    { description: 'Using the "Work on something small, get feedback, iterate, repeat" framework has sped up my redesign process.' },
+                    { description: 'Replicating the interface highlighted the significance of analyzing featured animations and integrating them into my mockup.' },
                 ]
             },
         ]
