@@ -3520,7 +3520,7 @@ p {
 /* Scroll indicator */
 .scroll-indicator {
   position: absolute;
-  bottom: 1.75rem;
+  bottom: -0.3rem;
   left: 50%;
   transform: translateX(-50%);
   color: rgba(26, 26, 26, 0.4);
