@@ -12,7 +12,7 @@ const projects = [
         tags: ['Sustainability', 'Tech4Good', 'Urban Mobility'],
 
         tldr: {
-            overview: 'Redesign the parking experience to align with Manchester\'s zero-carbon ambitions, shifting from a standalone parking finder to a last-mile multimodal journey planner that makes every parking decision an opportunity to reduce emissions.',
+            overview: 'Manchester\'s parking apps help drivers find spaces. They don\'t help them make better choices. EcoPark addresses that gap — a last-mile journey planner that makes the sustainable option the most convenient one.',
             proposals: [
                 {
                     title: 'Smart Multimodal Journey Planning:',
@@ -27,10 +27,15 @@ const projects = [
                     description: 'Real-time availability, in-app navigation, and one-tap payment consolidated into a single, stress-free journey flow.'
                 }
             ],
-            outcome: 'Usability testing validated the multimodal concept as logical and timely, with participants responding positively to the combined parking and public transport flow, and key iterations identified around emissions data clarity and booking confirmation detail.',
+            outcome: '5 out of 5 participants completed the end-to-end booking flow without assistance. The multimodal Park+Tram concept landed as intuitive and timely, with key iteration areas identified around emissions data clarity and booking confirmation detail. The prototype also surfaces a real dependency on live parking and traffic data — a deliberate design decision that points toward the infrastructure this product would need to work in the real world.',
         },
 
         sections: [
+            {
+                type: 'storyboard',
+                title: 'The Story',
+                storyboardId: 'ecopark',
+            },
             {
                 type: 'brief',
                 title: 'Current Climate',
@@ -72,6 +77,26 @@ const projects = [
                 ]
             },
             {
+                type: 'user-voices',
+                title: 'What People Told Us',
+                quotes: [
+                    {
+                        text: 'Drove around for nearly 40 minutes, couldn\'t find anything… Got there 12 minutes late, flustered and sweaty. Didn\'t get the job.',
+                        source: 'Survey respondent'
+                    },
+                    {
+                        text: 'I ended up driving around a residential area for 25 minutes before finding a space.',
+                        source: 'Survey respondent'
+                    }
+                ],
+                stats: [
+                    { value: '8/15', label: 'reported unclear pricing before arrival as a consistent pain point' },
+                    { value: '73%', label: 'estimate their car idles 5–30 minutes per week just searching for parking' },
+                    { value: '60%', label: 'were unaware of their parking emissions — yet rated environmental data as useful or essential alongside cost and time' },
+                ],
+                insight: 'Parking stress is not trivial — it carries real emotional, financial, and practical consequences. And while users aren\'t environmentally motivated yet, they\'re open to it if the data is transparent, credible, and presented alongside practical benefits like cost and time.'
+            },
+            {
                 type: 'gallery',
                 galleryType: 'carousel',
                 title: 'Initial Prototype',
@@ -97,22 +122,23 @@ const projects = [
                 galleryType: 'carousel',
                 title: 'Final Prototype',
                 images: [
-                    { url: 'assets/ecopark-homepage.png', caption: 'Home Page' },
-                    { url: 'assets/ecopark-resultpage.png', caption: 'Result Page' },
-                    { url: 'assets/ecopark-detailedpage.png', caption: 'Detailed Page (Parking)' },
-                    { url: 'assets/ecopark-detailedpage2.png', caption: 'Detailed Page (Transport)' },
-                    { url: 'assets/ecopark-booking.png', caption: 'Booking Page' },
-                    { url: 'assets/ecopark-navigation.png', caption: 'Navigation Page' },
-                    { url: 'assets/ecopark-activebooking.png', caption: 'Active Booking Page' },
-                    { url: 'assets/ecopark-paybycode.png', caption: 'Pay By Code Feature' },
+                    { url: 'assets/ecopark-homepage.png', caption: 'Home Page', rationale: 'A prominent search bar reduces friction for common trips. The eco dashboard surfaces the environmental impact of each journey from the very first screen, reinforcing EcoPark\'s value proposition immediately. Real-time nearby availability means the app delivers instant value without requiring any input from time-pressed users.' },
+                    { url: 'assets/ecopark-resultpage.png', caption: 'Result Page', rationale: 'The Park+Transport filter gives users control over how they complete their journey, directly reflecting Manchester\'s integrated transport strategy. CO₂ savings are displayed alongside price and time so the environmental impact of each choice is visible without feeling preachy.' },
+                    { url: 'assets/ecopark-detailedpage.png', caption: 'Detailed Page (Parking)', rationale: 'Photos, amenities, and transparent pricing help users make an informed choice before committing. Reviews are included because competitor research showed that platforms like Parkopedia built strong user trust and loyalty through community validation.' },
+                    { url: 'assets/ecopark-detailedpage2.png', caption: 'Detailed Page (Transport)', rationale: 'Route information shows the number of stops and transfers so users can fully gauge the last leg of their journey before booking. This reduces uncertainty at the point of decision, which the survey identified as a key barrier to confidence.' },
+                    { url: 'assets/ecopark-booking.png', caption: 'Booking Page', rationale: 'Users set their desired duration and enter their license plate before seeing a full booking summary covering parking, transport, total cost, and CO₂ savings. The verification step builds confidence and reduces errors before payment.' },
+                    { url: 'assets/ecopark-navigation.png', caption: 'Navigation Page', rationale: 'No existing parking app in the competitor analysis included in-app navigation. Adding turn-by-turn directions prevents users from needing to switch apps while driving, which is both a usability and a safety consideration.' },
+                    { url: 'assets/ecopark-activebooking.png', caption: 'Active Booking Page', rationale: 'A persistent banner on the home screen gives users quick access to their QR code, the option to extend their session, or to end parking early. All of this is reachable without navigating away from the starting point, keeping the experience low-effort once the journey is underway.' },
+                    { url: 'assets/ecopark-paybycode.png', caption: 'Pay By Code Feature', rationale: 'This feature allows users to pay for off-street parking on arrival without pre-planning. It connects directly to the NPP\'s existing scheme and addresses the fragmentation problem surfaced in the physical walkthrough. One code, one app, no confusion about which payment system to use.' },
                 ]
             },
             {
                 type: 'learning-points',
                 title: 'Learning Points',
                 proposals: [
-                    { description: 'Integrating AI tools early in the design process accelerated ideation and iteration. With more experience using them, future projects can move faster and with greater precision.' },
-                    { description: 'Researching within an unfamiliar cultural and infrastructural context, the UK\'s road and parking landscape compared to Singapore\'s, proved to be one of the most valuable parts of the process. Understanding why a system exists the way it does shapes better design decisions.' },
+                    { description: 'Designing for sustainability is not about adding eco features. It is about credibility design. When 3 out of 15 survey respondents said they would not trust any app\'s environmental claims, it reframed the design challenge entirely. Eco-scoring needs methodology transparency, past-trip comparisons, and institutional backing to be believed. Trust has to be designed, not assumed.' },
+                    { description: 'A prototype\'s limits reveal the product\'s real requirements. EcoPark\'s full vision depends on live parking availability, real-time traffic data, and emissions APIs, none of which exist in a Figma simulation. Hitting that wall clarified exactly what infrastructure this product would need to move from concept to reality, and became one of the most valuable outputs of the project.' },
+                    { description: 'Researching an unfamiliar infrastructure changed how I read the design problem. Coming from Singapore where parking systems are largely standardised, the fragmentation of UK parking was not immediately obvious. The physical walkthrough made it visceral. Understanding why that fragmentation exists shaped every decision around reducing cognitive load at the point of parking.' },
                 ]
             },
         ]
@@ -130,7 +156,7 @@ const projects = [
         tags: ['UX Research', 'Accessibility (WCAG)', 'Journey Mapping'],
 
         tldr: {
-            overview: 'Investigate caregivers and elderly users behaviors, routines, and contexts to uncover the specific barriers that hinder adoption and provide actionable design insights.',
+            overview: 'Caregivers managing medication for elderly relatives need tools they can trust. HealthBuddy\'s existing flow buried that trust under a confusing interface, a technical medicine list, and no sense of progress mid-task. This project asked: what would it take to make a medication reminder app as reliable as an alarm clock?',
             proposals: [
                 {
                     title: 'Streamlined UI:',
@@ -145,12 +171,17 @@ const projects = [
                     description: 'Adding pop-up tips and a confirmation system to enhance user trust in the app.'
                 }
             ],
-            outcome: 'By addressing core usability flaws, increase user adoption and retention. Transforming the app from a frustrating tool to a reliable resource for caregivers.',
+            outcome: 'Testing with family members surfaced clear evidence that the redesign worked where it mattered. 80% of testers said the progress bar immediately helped them understand where they were in the flow — the single biggest frustration with the original. All testers were excited by the QR scanner and appreciated the structured layout. An unexpected insight also emerged: a tester asking "can I view all my medications at once?" pointed toward a longer-term opportunity to connect the app with a physical pill dispenser.',
         },
 
         overview: 'As I view the caretakers of my grandparents and elders themselves who facilitate the daily ritual of medicine consumption, there is a struggle to remember the timing and dosage let alone noting down their reaction to the medication.<br><br>This raises the need to understand why tools like the HealthBuddy app are not fully adopted or consistently used. Through investigating user behaviors, routines, and contexts, the goal is to uncover the barriers that shape adoption and provide insights to guide better design.',
 
         sections: [
+            {
+                type: 'storyboard',
+                title: 'The Story',
+                storyboardId: 'healthbuddy',
+            },
             {
                 type: 'image-text',
                 layout: 'side-by-side',
@@ -240,9 +271,9 @@ const projects = [
                 type: 'learning-points',
                 title: 'Learning Points',
                 proposals: [
-                    { description: 'Take time to synthesis user interviews.' },
-                    { description: 'Allow users to understand where they are in the process.' },
-                    { description: 'Unnecessary sectionising creates friction.' },
+                    { description: 'With a 2-week sprint, it was tempting to move quickly from interviews to design. Taking the time to properly synthesise what family members said, rather than jumping to solutions, produced sharper problem framing and more grounded design decisions.' },
+                    { description: 'Testing revealed that users were not struggling with the task itself. They were struggling with not knowing where they were in the task. Adding a clear progress bar resolved the most common frustration without changing a single piece of functionality, a reminder that sometimes the most impactful fix is the simplest one.' },
+                    { description: 'The original HealthBuddy app separated every action into its own section, forcing users to navigate across multiple screens to complete one task. Consolidating the flow into a single guided sequence reduced cognitive load significantly and made the experience feel far less overwhelming.' },
                 ]
             },
         ]
@@ -260,27 +291,30 @@ const projects = [
         tags: ['Service Design', 'Design Thinking', 'Prototyping'],
 
         tldr: {
-            overview: 'Redesigned the selection process to improve engagement, strengthen community, and reduce food waste.',
+            overview: 'Olio had the right mission — reduce food waste by connecting neighbours. But the existing app experience was letting it down. Users who wanted to share surplus food encountered an unexplained points system, no required pickup timing, and a community page that felt more like a noticeboard than a neighbourhood. This project asked: what would it take to design an experience that actually earned the mission?',
             proposals: [
                 {
                     title: 'Gamification & Points System:',
-                    description: 'Introduce a rewards-based system to incentivize positive behavior and increase user retention.'
+                    description: 'Introduce a rewards-based system to incentivize positive behaviour and increase user retention.'
                 },
                 {
                     title: 'Hyper-Local Community Discovery:',
-                    description: 'Help users connect and build trust with their neighbors, fostering a social and community-driven experience.'
+                    description: 'Help users connect and build trust with their neighbours, fostering a social and community-driven experience.'
                 },
                 {
                     title: 'Streamlined Requesting Flow:',
                     description: 'Simplify the request and communication process to reduce user friction and increase the reliability of transactions.'
                 }
             ],
-            outcome: 'An intuitive and engaging experience that increase user retention and community building, ultimately boosting the app\'s overall effectiveness in combating food waste.',
+            outcome: 'Testing surfaced the most consistent pain point immediately: users recognised the points system as a good idea but had no idea how to earn or use them. Adding a three-screen onboarding carousel resolved the confusion before users ever encountered a listing. A second key change shifted the gamification metric from abstract gems to meals rescued — a small data change that gave users a concrete, mission-aligned reason to engage. The service blueprint, mapped before any screen was drawn, also revealed that missing pickup times were driving most of the unnecessary back-and-forth between strangers.',
         },
 
-        overview: 'The organisation requires you to build on your existing research by exploring and identifying the business needs, competitors, and success metrics. Along with the user research you have already gathered, these insights will inform a high-fidelity prototype.',
-
         sections: [
+            {
+                type: 'storyboard',
+                title: 'The Story',
+                storyboardId: 'olio',
+            },
             {
                 type: 'gallery',
                 galleryType: 'carousel',
@@ -341,19 +375,19 @@ const projects = [
                 galleryType: 'carousel',
                 title: 'Improvements After Testing',
                 images: [
-                    { url: 'assets/olio-mockup-after-testing-1.png', caption: 'Onboarding process' },
-                    { url: 'assets/olio-mockup-after-testing-2.png', caption: 'Product Page' },
-                    { url: 'assets/olio-mockup-after-testing-3.png', caption: 'Community Page' },
-                    { url: 'assets/olio-mockup-after-testing-4.png', caption: 'Games Page' },
+                    { url: 'assets/olio-mockup-after-testing-1.png', caption: 'Onboarding', rationale: 'Testing showed users found the points system valuable in principle but couldn\'t figure out how to earn or redeem them. A three-screen onboarding carousel — Play, Learn, Earn — gives new users a clear mental model of how gems work before they ever encounter a listing.' },
+                    { url: 'assets/olio-mockup-after-testing-2.png', caption: 'Product Page', rationale: 'Two targeted changes: pickup time is now a required field when creating a listing, eliminating the most common cause of unnecessary messages between strangers. Purchase date, expiry date, and a "shared because" field were also added to build the trust a user needs before committing to collect from someone they don\'t know.' },
+                    { url: 'assets/olio-mockup-after-testing-3.png', caption: 'Community Page', rationale: 'The top sharers leaderboard metric was changed from gems to meals rescued — directly connecting individual contributions to the app\'s mission. This makes the scoreboard feel purposeful rather than arbitrary, and gives users a concrete answer to the question: why does sharing here matter?' },
+                    { url: 'assets/olio-mockup-after-testing-4.png', caption: 'Games Page', rationale: 'A league indicator was added above the game tiles so users can track their progress at a glance. This makes the progression system visible on the screen users already visit most, without requiring a separate profile navigation step.' },
                 ]
             },
             {
                 type: 'learning-points',
                 title: 'Learning Points',
                 proposals: [
-                    { description: 'Making an impact doesn\'t require a big change. Informative insights are more meaningful for the project.' },
-                    { description: 'Using the "Work on something small, get feedback, iterate, repeat" framework has sped up my redesign process.' },
-                    { description: 'Replicating the interface highlighted the significance of analyzing featured animations and integrating them into my mockup.' },
+                    { description: 'The service blueprint was the most valuable artefact in this project. Mapping the full journey — customer actions, back-stage systems, and support infrastructure — revealed that the biggest friction point was invisible in the UI: listings without specified pickup times were forcing unnecessary message exchanges between strangers. Fixing the interface without addressing that would have missed the real problem entirely.' },
+                    { description: 'Introducing a new mechanic is not the same as making it understandable. Testing showed users responded positively to the points system in principle but had no idea how to engage with it. The fix was not a better icon. It was a dedicated onboarding carousel that showed the system working before the user ever encountered a listing. Designing a feature and designing its explanation are two separate problems.' },
+                    { description: 'Changing the gamification metric from gems earned to meals rescued was one line of data. The effect on user motivation was not small. Abstract rewards framed engagement as a loyalty scheme. A concrete impact metric made it feel like a contribution to something real. That distinction between a personal reward and a meaningful signal shapes how users relate to the product.' },
                 ]
             },
         ]
